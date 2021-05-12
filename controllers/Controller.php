@@ -33,16 +33,26 @@ class Controller
 
  private function about()
  {
-  //$this->getHeader("Om Oss");
+  $this->getHeader("Om Oss");
   $this->view->viewAboutPage();
-  //$this->getFooter();
+  $this->getFooter();
  }
+
+  private function getHeader($title)
+  {
+    $this->view->viewHeader($title);
+  }
+
+  private function getFooter()
+  {
+    $this->view->viewFooter();
+  }
 
  private function getAllProducts()
  {
-  //$this->getHeader("Välkommen");
+  $this->getHeader("");
   $products = $this->model->fetchAllProducts();
   $this->view->viewAllProducts($products);
-  //$this->getFooter();
+  $this->getFooter();
  }
 }
