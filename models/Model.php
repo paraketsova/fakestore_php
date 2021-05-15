@@ -13,8 +13,9 @@ class Model
  public function fetchAllProducts()
  {
   $products = $this->db->select("SELECT * FROM products");
-  echo "<pre>"; 
-  print_r($products);
-  //return $products;
+  //echo "<pre>"; 
+  //print_r($products);
+  return $products;
  }
+
 }
