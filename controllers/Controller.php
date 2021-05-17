@@ -29,6 +29,9 @@ class Controller
       case "product":
         $this->getOneProduct();
         break;
+      case "cart":
+        $this->getProductToCart();
+        break;
       default:
         $this->getAllProducts();
     }
@@ -70,14 +73,19 @@ class Controller
 
     $this->getFooter();
   }
-    /**
-     * Sanitize Inputs
-     */
-    public function sanitize($text)
-    {
-      $text = trim($text);
-      $text = stripslashes($text);
-      $text = htmlspecialchars($text);
-      return $text;
-    }
+
+  private function getProductToCart(){
+
+  }
+
+  /**
+   * Sanitize Inputs
+   */
+  public function sanitize($text)
+  {
+    $text = trim($text);
+    $text = stripslashes($text);
+    $text = htmlspecialchars($text);
+    return $text;
+  }
 }

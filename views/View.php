@@ -64,7 +64,11 @@ class View
                     <h3 class="card-title">$product[title]</h3>
                     <h4>$product[price] kr</h4>
                     <p class="card-text">$product[description]</p>
-                    <a id="cart_link" href="#" class="btn btn-danger mt-3"><i class="fas fa-shopping-cart"></i> Lägg i varukorgen</a>
+                    <form action="/cart" method="post">
+                        <input type="number" name="quantity" value="1" min="1" max="10" placeholder="Quantity" required>
+                        <input type="hidden" name="product_id" value="<?=$product[id]?>">
+                        <a id="cart_link" href="#" class="btn btn-danger mt-3"><i class="fas fa-shopping-cart"></i> Lägg i varukorgen</a>
+                    </form>
                 </div>
             </div>
         </div>
