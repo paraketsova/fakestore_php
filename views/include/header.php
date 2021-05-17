@@ -24,8 +24,7 @@
                         </a>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="/fakestore_php/?page=about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#!">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#!">Log in</a></li>
                 </ul>
             </div>
         </div>
