@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: May 11, 2021 at 11:37 AM
+-- Generation Time: May 17, 2021 at 11:47 AM
 -- Server version: 5.7.32
 -- PHP Version: 7.4.12
 
@@ -69,6 +69,7 @@ CREATE TABLE `orders` (
   `order_id` int(11) NOT NULL,
   `customer_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL,
   `order_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `order_status` varchar(1) COLLATE utf8_swedish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
