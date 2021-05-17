@@ -35,7 +35,7 @@ class View
                         <div class="card-body">
                             <h4 class="card-title">$product[title]</h4>
                             <h5>$product[price] kr</h5>
-                            <p class="card-text">$product[description]</p>
+                            <!-- <p class="card-text">$product[description]</p> -->
                         </div>
                         <div class="card-footer"><small class="text-muted">★ ★ ★ ★ ☆</small></div>
                     </div>
@@ -47,7 +47,30 @@ class View
         echo $html;
     }
 
-    public function viewDetailPage($product) {
-        $this->viewOneProduct($product);
+    public function viewDetailPage($product)
+    {
+        $this->viewDetailProduct($product);
+    }
+
+    public function viewDetailProduct($product)
+    {
+
+        $html = <<<HTML
+
+        <div class="col-lg-9">
+            <div class="card mt-4">
+                <img class="card-img-top img-fluid" src="images/$product[image]" alt="$product[title]" />
+                <div class="card-body">
+                    <h3 class="card-title">$product[title]</h3>
+                    <h4>$product[price] kr</h4>
+                    <p class="card-text">$product[description]</p>
+                    <span class="text-muted">★ ★ ★ ★ ☆</span>
+                </div>
+            </div>
+        </div>
+
+        HTML;
+
+        echo $html;
     }
 }
