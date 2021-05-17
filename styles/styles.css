@@ -69,6 +69,11 @@ body {
   background-color: #fff;
 }
 
+#link {
+  text-decoration: none;
+  color: black;
+}
+
 [tabindex="-1"]:focus:not(:focus-visible) {
   outline: 0 !important;
 }
