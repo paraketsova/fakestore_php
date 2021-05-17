@@ -25,4 +25,31 @@ class Model
     return $product[0] ?? false;
   }
 
+  //TODO - delete after log-in function adding
+  public function fetchCustomerById($id)
+  {
+      $statement = "SELECT * FROM customers WHERE customer_id=:id";
+      $parameters = array(':id' => $id);
+      $customer = $this->db->select($statement, $parameters);
+      return $customer[0] ?? false;
+  }
+
+  public function saveOrder($customer_id, $product_id, $quantity)
+  {
+    $customer = $this->fetchCustomerById($customer_id);
+    if (!$customer) return false;
+
+    $statement = "INSERT INTO orders (customer_id, product_id, quantity)
+                  VALUES (:customer_id, :product_id, :quantity)";
+    $parameters = array(
+      ':customer_id' => $customer_id,
+      ':product_id' => $product_id,
+      ':quantity' => $quantity
+    );
+
+    // Ordernummer
+    $lastInsertId = $this->db->insert($statement, $parameters);
+
+    return array('customer' => $customer, 'lastInsertId' => $lastInsertId);
+  }
 }
