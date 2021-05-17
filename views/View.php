@@ -64,7 +64,7 @@ class View
                     <h3 class="card-title">$product[title]</h3>
                     <h4>$product[price] kr</h4>
                     <p class="card-text">$product[description]</p>
-                    <span class="text-muted">★ ★ ★ ★ ☆</span>
+                    <a id="cart_link" href="#" class="btn btn-danger mt-3"><i class="fas fa-shopping-cart"></i> Lägg i varukorgen</a>
                 </div>
             </div>
         </div>

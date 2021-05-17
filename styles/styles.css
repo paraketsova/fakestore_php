@@ -182,6 +182,10 @@ a:not([href]):not([class]):hover {
   text-decoration: none;
 }
 
+#cart_link {
+  text-decoration: none;
+}
+
 pre,
 code,
 kbd,
