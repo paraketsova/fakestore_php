@@ -26,6 +26,9 @@ class Controller
       case "about":
         $this->about();
         break;
+      case "product":
+        $this->getOneProduct();
+        break;
       default:
         $this->getAllProducts();
     }
@@ -56,4 +59,25 @@ class Controller
     $this->getFooter();
   }
 
+  private function getOneProduct()
+  {
+    $this->getHeader("");
+
+    $id = $this->sanitize($_GET['id']);
+    $product = $this->model->fetchOneProductById($id);
+    if($product)
+      $this->view->viewDetailPage($product);
+
+    $this->getFooter();
+  }
+    /**
+     * Sanitize Inputs
+     */
+    public function sanitize($text)
+    {
+      $text = trim($text);
+      $text = stripslashes($text);
+      $text = htmlspecialchars($text);
+      return $text;
+    }
 }
