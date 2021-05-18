@@ -80,7 +80,7 @@ class View
         echo $html;
     }
 
-    public function viewConfirmMessage($customer, $lastInsertId)
+    /* public function viewConfirmMessage($customer, $lastInsertId)
     {
         $this->printMessage(
             "<h4>Tack $customer[name]</h4>
@@ -101,13 +101,13 @@ class View
             "warning"
         );
     }
-
+ */
     /**
      * En funktion som skriver ut ett felmeddelande
      * $messageType enligt Bootstrap Alerts
      * https://getbootstrap.com/docs/5.0/components/alerts/
      */
-    public function printMessage($message, $messageType = "danger")
+   /*  public function printMessage($message, $messageType = "danger")
     {
         $html = <<< HTML
 
@@ -118,5 +118,5 @@ class View
         HTML;
 
         echo $html;
-    }
+    } */
 }
