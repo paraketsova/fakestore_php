@@ -17,6 +17,11 @@ class View
         include_once("views/include/about.php");
     }
 
+    public function viewLoginPage()
+    {
+        include_once("views/include/login.php");
+    }
+
     public function viewAllProducts($products)
     {
         foreach ($products as $product) {
@@ -79,6 +84,7 @@ class View
 
         echo $html;
     }
+
 
     /* public function viewConfirmMessage($customer, $lastInsertId)
     {

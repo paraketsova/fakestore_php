@@ -26,13 +26,13 @@ class Model
   }
 
   //TODO - delete after log-in function adding
- /*  public function fetchCustomerById($id)
+  public function fetchCustomerForLogin($email, $password)
   {
-      $statement = "SELECT * FROM customers WHERE customer_id=:id";
-      $parameters = array(':id' => $id);
+      $statement = "SELECT * FROM customers WHERE email=:email";
+      $parameters = array(':email' => $email);
       $customer = $this->db->select($statement, $parameters);
       return $customer[0] ?? false;
-  } */
+  } 
 
   /* public function saveOrder($customer_id, $product_id, $quantity)
   {

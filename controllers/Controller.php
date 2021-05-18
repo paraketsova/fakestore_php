@@ -29,6 +29,9 @@ class Controller
       case "product":
         $this->getOneProduct();
         break;
+      case "login":
+        $this->login();
+        break;
 /*       case "cart":
         $this->getProductToCart();
         break; */
@@ -77,9 +80,17 @@ class Controller
     $this->getFooter();
   }
 
+  private function login(){
+    $this->getHeader("Please login");
+    $this->view->viewLoginPage();
+    $this->getFooter();
+  }
+
+
   private function getProductToCart() {
 
   }
+
 
   /**
    * Sanitize Inputs

@@ -25,7 +25,7 @@
                         </a>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="/fakestore_php/?page=about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#!">Log in</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/fakestore_php/?page=login">Log in</a></li>
                 </ul>
             </div>
         </div>
