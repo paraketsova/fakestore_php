@@ -72,9 +72,7 @@ class View
                     <form action="#" method="post">
                         <input type="number" name="quantity" value="1" min="1" max="10" placeholder="Quantity" required>
                         <input type="hidden" name="product_id" value="$product[product_id]">
-                        <input type="number" name="customer_id"  required
-                            placeholder="Ange ditt kundnummer">
-                        <a id="cart_link" href="#" class="btn btn-danger mt-3"><i class="fas fa-shopping-cart"></i> Lägg i varukorgen</a>
+                        <a id="cart_link" href="#" class="btn btn-secondary mt-3"><i class="fas fa-shopping-cart"></i> Lägg i varukorgen</a>
                     </form>
                 </div>
             </div>
