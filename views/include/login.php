@@ -8,7 +8,7 @@
 
 <div class="container mt-4">
  <div class="row justify-content-center">
-  <form action="/login" method="POST" class="col-12 col-md-8 col-lg-8 col-xl-6">
+  <form action="" method="POST" class="col-12 col-md-8 col-lg-8 col-xl-6">
    <div class="row">
     <div class="col text-center">
      <h1>Login</h1>

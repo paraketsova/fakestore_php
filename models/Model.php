@@ -25,14 +25,37 @@ class Model
     return $product[0] ?? false;
   }
 
-  //TODO - delete after log-in function adding
+  
   public function fetchCustomerForLogin($email, $password)
   {
       $statement = "SELECT * FROM customers WHERE email=:email";
       $parameters = array(':email' => $email);
       $customer = $this->db->select($statement, $parameters);
       return $customer[0] ?? false;
-  } 
+  }
+
+  public function loginUser($email, $password)
+  {
+    if (isset($_POST)) {
+      $user = $_POST['admin'] ?? ['customers'];
+      $email = $_POST['email'];
+      $password = $_POST['password'];
+
+      if ($email != "" && $password != "") {
+        $statement = "SELECT * FROM $user WHERE email=:email AND password=:password";
+        $parameters = array(
+          ':email' => $email,
+          ':password' => $password
+        );
+        $loggedUser = $this->db->select($statement, $parameters);
+         if(count($loggedUser) > 0 ){
+          $_SESSION['email'] = $email;
+          return array('loggedUser' => $loggedUser) ?? false;
+        }
+      }
+    }
+  }
+
 
   /* public function saveOrder($customer_id, $product_id, $quantity)
   {

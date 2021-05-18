@@ -80,12 +80,31 @@ class Controller
     $this->getFooter();
   }
 
+
   private function login(){
-    $this->getHeader("Please login");
+    $this->getHeader("");
     $this->view->viewLoginPage();
+
+    if($_SERVER['REQUEST_METHOD'] === 'POST'){
+      $this->validateLogin();
+    }
     $this->getFooter();
   }
+   
+ 
+  public function validateLogin(){
+    $email = $this->sanitize($_POST['email']);
+    $password = $this->sanitize($_POST['password']);
+    
+    $checking = $this->loginUser($email, $password);
 
+    if($checking){
+      $this->view->viewConfirmLoginMessage($email);
+      //to do send to index page
+    } else {
+      $this->view->viewErrorMessage($email);
+    }
+  }
 
   private function getProductToCart() {
 
