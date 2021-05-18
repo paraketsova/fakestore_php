@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: May 17, 2021 at 11:47 AM
+-- Generation Time: May 18, 2021 at 08:27 AM
 -- Server version: 5.7.32
 -- PHP Version: 7.4.12
 
@@ -32,7 +32,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`admin_id`, `name`, `password`, `email`) VALUES
-(1, 'Eva', 'Olsson', 'eva@admin.se');
+(1, 'Admin', 'e3afed0047b08059d0fada10f400c1e5', 'admin@admin.se');
 
 -- --------------------------------------------------------
 
@@ -52,12 +52,12 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`customer_id`, `name`, `email`, `password`) VALUES
-(1, 'Robert Smith', 'robert@smith.se', ''),
-(2, 'Olle Kalsson', 'olle@karlsson.se', ''),
-(3, 'Anna Petersson', 'anna@petersson.se', ''),
-(4, 'Helena Strand', 'helena@strand.se', ''),
-(5, 'Kate Svensson', 'kate@svensson.se', ''),
-(6, 'Bjorn Bjornsson', 'bjorn@bjornsson.se', '');
+(1, 'Robert Smith', 'robert@smith.se', '4ffe35db90d94c6041fb8ddf7b44df29'),
+(2, 'Olle Kalsson', 'olle@karlsson.se', 'a0281f055d79f8510ae12b5de6d48806'),
+(3, 'Anna Petersson', 'anna@petersson.se', '97a9d330e236c8d067f01da1894a5438'),
+(4, 'Helena Strand', 'helena@strand.se', '8f5696351d40139b803a68a8cef76cea'),
+(5, 'Kate Svensson', 'kate@svensson.se', 'a6cb3dfcedc2356766917ede95a12a23'),
+(6, 'Bjorn Bjornsson', 'bjorn@bjornsson.se', '4547f455d8e15fc105802a5967e09001');
 
 -- --------------------------------------------------------
 
@@ -167,7 +167,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `orders`
