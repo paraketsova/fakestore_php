@@ -52,7 +52,7 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`customer_id`, `name`, `email`, `password`) VALUES
-(1, 'Robert Smith', 'robert@smith.se', '4ffe35db90d94c6041fb8ddf7b44df29'),
+(1, 'Robert Smith', 'robert@smith.se', 'Robert'),
 (2, 'Olle Kalsson', 'olle@karlsson.se', 'a0281f055d79f8510ae12b5de6d48806'),
 (3, 'Anna Petersson', 'anna@petersson.se', '97a9d330e236c8d067f01da1894a5438'),
 (4, 'Helena Strand', 'helena@strand.se', '8f5696351d40139b803a68a8cef76cea'),
