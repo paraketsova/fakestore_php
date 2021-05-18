@@ -19,7 +19,7 @@ class Controller
 
   private function router()
   {
-
+    //if $page = $_POST['page'];
     $page = $_GET['page'] ?? "";
 
     switch ($page) {
@@ -29,9 +29,9 @@ class Controller
       case "product":
         $this->getOneProduct();
         break;
-      case "cart":
+/*       case "cart":
         $this->getProductToCart();
-        break;
+        break; */
       default:
         $this->getAllProducts();
     }
@@ -71,11 +71,25 @@ class Controller
     if($product)
       $this->view->viewDetailPage($product);
 
+    if ($_SERVER['REQUEST_METHOD'] === 'POST')
+      $this->getProductToCart();
+
     $this->getFooter();
   }
 
-  private function getProductToCart(){
+  private function getProductToCart($customer_id, $product_id, $quantity) {
+    $product_id    = $this->sanitize($_POST['product_id']);
+    $customer_id = $this->sanitize($_POST['customer_id']);
+    $quantity = $this->sanitize($_POST['quantity']);
+    $confirm = $this->model->saveOrder($customer_id, $product_id, $quantity);
 
+    if ($confirm) {
+        $customer = $confirm['customer'];
+        $lastInsertId = $confirm['lastInsertId'];
+        $this->view->viewConfirmMessage($customer, $lastInsertId);
+    } else {
+        $this->view->viewErrorMessage($customer_id);
+    }
   }
 
   /**

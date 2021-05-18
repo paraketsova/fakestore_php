@@ -64,14 +64,56 @@ class View
                     <h3 class="card-title">$product[title]</h3>
                     <h4>$product[price] kr</h4>
                     <p class="card-text">$product[description]</p>
-                    <form action="/cart" method="post">
+                    <form action="#" method="post">
                         <input type="number" name="quantity" value="1" min="1" max="10" placeholder="Quantity" required>
-                        <input type="hidden" name="product_id" value="<?=$product[id]?>">
+                        <input type="hidden" name="product_id" value="$product[product_id]">
+                        <input type="number" name="customer_id"  required
+                            placeholder="Ange ditt kundnummer">
                         <a id="cart_link" href="#" class="btn btn-danger mt-3"><i class="fas fa-shopping-cart"></i> Lägg i varukorgen</a>
                     </form>
                 </div>
             </div>
         </div>
+
+        HTML;
+
+        echo $html;
+    }
+
+    public function viewConfirmMessage($customer, $lastInsertId)
+    {
+        $this->printMessage(
+            "<h4>Tack $customer[name]</h4>
+            <p>Vi kommer att skicka producten.</p>
+            <p>Ditt ordernummer är $lastInsertId </p>
+            </div> <!-- col  avslutar Beställningsformulär -->
+            ",
+            "success"
+        );
+    }
+    public function viewErrorMessage($customer_id)
+    {
+        $this->printMessage(
+            "<h4>Kundnummer $customer_id finns ej i vårt kundregister!</h4>
+            <h5>Kontakta kundtjänst</h5>
+            </div> <!-- col  avslutar Beställningsformulär -->
+            ",
+            "warning"
+        );
+    }
+
+    /**
+     * En funktion som skriver ut ett felmeddelande
+     * $messageType enligt Bootstrap Alerts
+     * https://getbootstrap.com/docs/5.0/components/alerts/
+     */
+    public function printMessage($message, $messageType = "danger")
+    {
+        $html = <<< HTML
+
+            <div class="my-2 alert alert-$messageType">
+                $message
+            </div>
 
         HTML;
 
