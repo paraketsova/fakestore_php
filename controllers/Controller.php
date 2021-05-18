@@ -96,7 +96,7 @@ class Controller
     $email = $this->sanitize($_POST['email']);
     $password = $this->sanitize($_POST['password']);
     
-    $checking = $this->loginUser($email, $password);
+    $checking = $this->model->loginUser($email, $password);
 
     if($checking){
       $this->view->viewConfirmLoginMessage($email);
