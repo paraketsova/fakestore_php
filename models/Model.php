@@ -28,7 +28,7 @@ class Model
   {
     if (isset($_POST)) {
       $email = $_POST['email'];
-      $password = md5($_POST['password']);
+      $password = md5($_POST['password']); // hashing password from user to compare to DB data
 
       if ($email != "" && $password != "") {
         $statement = "SELECT * FROM customers WHERE email=:email AND password=:password";
