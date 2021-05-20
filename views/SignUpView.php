@@ -36,6 +36,17 @@ class SignUpView
         );
     }
 
+    public function viewErrorEmailMessage($email)
+    {
+        $this->printMessage(
+            "<h4> $email Opps här finns problem!</h4>
+            <h5>Duplikate!</h5>
+            </div> <!-- col  avslutar Beställningsformulär -->
+            ",
+            "warning"
+        );
+    }
+
     public function printMessage($message, $messageType = "danger")
     {
         $html = <<< HTML

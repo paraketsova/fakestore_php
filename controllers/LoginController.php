@@ -24,8 +24,9 @@ class LoginController
 
   public function validateLogin(){
     $email = $this->sanitize($_POST['email']);
-    $password = $this->sanitize($_POST['password']);
+    $pass = $this->sanitize($_POST['password']);
 
+    $password = md5($pass);
     $checking = $this->model->loginUser($email, $password);
 
     if($checking){
