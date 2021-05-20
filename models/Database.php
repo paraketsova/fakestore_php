@@ -35,7 +35,8 @@
    $stmt->execute($input_parameters);
    return $stmt;
   } catch (PDOException $e) {
-   throw new Exception($e->getMessage());
+    echo "Error: " . $e->getMessage() . "<br>";
+    throw new Exception($e->getMessage());
   }
  }
 

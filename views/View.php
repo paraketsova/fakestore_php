@@ -17,21 +17,18 @@ class View
         include_once("views/include/about.php");
     }
 
-    public function viewLoginPage()
-    {
-        include_once("views/include/login.php");
-    }
-
     public function viewAllProducts($products)
     {
         foreach ($products as $product) {
             $this->viewOneProduct($product);
-            //echo "<pre>"; print_r($products);
+            //echo "<pre>"; print_r($products); - test
         }
     }
 
     public function viewOneProduct($product)
     {
+        $url = URLROOT;
+
         $html = <<<HTML
             <div class="col-lg-4 col-md-6 mb-4">
                 <a id="link" href="?page=product&id=$product[product_id]">
@@ -83,39 +80,7 @@ class View
         echo $html;
     }
 
-    public function viewConfirmLoginMessage($customer)
-    {
-        $this->printMessage(
-            "<h4>$customer you logged in</h4>",
-            "success"
-        );
-    }
-
-   
-
-    public function viewErrorMessage($customer)
-    {
-        $this->printMessage(
-            "<h4> $customer finns ej i vårt kundregister!</h4>
-            <h5>Kontakta kundtjänst</h5>
-            </div> <!-- col  avslutar Beställningsformulär -->
-            ",
-            "warning"
-        );
-    }
-
-    public function printMessage($message, $messageType = "danger")
-    {
-        $html = <<< HTML
-
-            <div class="my-2 alert alert-$messageType">
-                $message
-            </div>
-
-        HTML;
-
-        echo $html;
-    }
+    
 
     /* public function viewConfirmMessage($customer, $lastInsertId)
     {

@@ -9,25 +9,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>WebShop</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-    <link href="styles/styles.css" rel="stylesheet">
+    <link href="<?= URLROOT ?>/styles/styles.css" rel="stylesheet">
 </head>
 
 <body>
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="/fakestore_php">WebShop</a>
+            <a class="navbar-brand" href="<?= URLROOT ?>">WebShop</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="/fakestore_php">
+                        <a class="nav-link" href="<?= URLROOT ?>">
                             Home
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="/fakestore_php/?page=about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/fakestore_php/?page=login">Log in</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?= URLROOT ?>/about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?= URLROOT ?>/login">Log in</a></li>
                 </ul>
             </div>
         </div>
