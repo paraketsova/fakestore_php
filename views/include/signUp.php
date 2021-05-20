@@ -19,7 +19,7 @@
         </div>
         <div class="row align-items-center mt-4">
           <div class="col">
-            <input type="password" name="password" class="form-control" placeholder="Lösenord" value="" required>
+            <input type="password" name="password" class="form-control" placeholder="Lösenord" value="" minlength="6" required>
           </div>
           <div class="col">
             <input type="password" name="password2" class="form-control" placeholder="Bekräfta lösenord" value="" required>
