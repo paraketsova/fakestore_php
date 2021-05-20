@@ -4361,6 +4361,11 @@ input[type=button].btn-block {
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
 }
+.card:hover {
+  transform:scale(1.02);
+  background-color: #eeeeee;
+  box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 .card > hr {
   margin-right: 0;
   margin-left: 0;

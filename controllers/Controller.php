@@ -90,17 +90,17 @@ class Controller
     }
     $this->getFooter();
   }
-   
- 
+
+
   public function validateLogin(){
     $email = $this->sanitize($_POST['email']);
     $password = $this->sanitize($_POST['password']);
-    
+
     $checking = $this->model->loginUser($email, $password);
 
     if($checking){
       $this->view->viewConfirmLoginMessage($email);
-      //to do send to index page
+      // TODO: send user to index page or Sign up page
     } else {
       $this->view->viewErrorMessage($email);
     }
