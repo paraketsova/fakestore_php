@@ -1,6 +1,6 @@
 <?php
 
-class LoginController
+class SignUpController
 {
     private $model;
     private $view;
@@ -11,25 +11,27 @@ class LoginController
         $this->view = $view;
     }
 
-    public function login(){
+    public function signUp(){
     $this->view->viewHeader("");
-    $this->view->viewLoginPage();
+    $this->view->viewSignUpPage();
 
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
-      $this->validateLogin();
+      $this->validateSignUp();
     }
     $this->view->viewFooter();
   }
 
 
-  public function validateLogin(){
+  public function validateSignUp(){
+    $name = $this->sanitize($_POST['name']);  
     $email = $this->sanitize($_POST['email']);
-    $password = $this->sanitize($_POST['password']);
+    $pass = $this->sanitize($_POST['password']);
+    $password = md5($pass);
 
-    $checking = $this->model->loginUser($email, $password);
+    $checking = $this->model->signupUser($name, $email, $password);
 
     if($checking){
-      $this->view->viewConfirmLoginMessage($email);
+      $this->view->viewConfirmSignUpMessage($email);
     } else {
       $this->view->viewErrorMessage($email);
     }

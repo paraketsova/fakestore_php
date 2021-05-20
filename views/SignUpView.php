@@ -1,6 +1,6 @@
 <?php
 
-class LoginView
+class SignUpView
 {
     public function viewHeader($title)
     {
@@ -12,15 +12,15 @@ class LoginView
         include_once("views/include/footer.php");
     }
 
-    public function viewLoginPage()
+    public function viewSignUpPage()
     {
-        include_once("views/include/login.php");
+        include_once("views/include/signUp.php");
     }
 
-    public function viewConfirmLoginMessage($customer)
+    public function viewConfirmSignUpMessage($customer)
     {
         $this->printMessage(
-            "<h4>$customer du är inlogged!</h4>",
+            "<h4>$customer du är registrerad!</h4>",
             "success"
         );
     }
@@ -28,7 +28,7 @@ class LoginView
     public function viewErrorMessage($customer)
     {
         $this->printMessage(
-            "<h4> $customer finns ej i vårt kundregister!</h4>
+            "<h4> $customer finns problem!</h4>
             <h5>Kontakta kundtjänst</h5>
             </div> <!-- col  avslutar Beställningsformulär -->
             ",

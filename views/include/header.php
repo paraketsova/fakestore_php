@@ -28,6 +28,7 @@
                     </li>
                     <li class="nav-item"><a class="nav-link" href="<?= URLROOT ?>/about">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="<?= URLROOT ?>/login">Log in</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?= URLROOT ?>/signup">Sign up</a></li>
                 </ul>
             </div>
         </div>
