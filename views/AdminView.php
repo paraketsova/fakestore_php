@@ -20,10 +20,42 @@ class AdminView
 
   public function viewProductsTable($products)
   {
+      
+
+      $url = URLROOT;
+
+      $html = <<<HTML
+
+      <div class="col-lg-12">
+        <div class="row justify-content-center">
+         <table class=table> 
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Image</th>
+                <th>Price</th>
+                <th></th>
+                <th></th>
+            </tr>
+
+      HTML;
+
+      echo $html;
+
       foreach ($products as $product) {
-        //$this->viewOneItem($product);
-        echo "<pre>"; print_r($products); // test
+        $this->viewOneItem($product);
+      //echo "<pre>"; print_r($products); // test
       }
+      
+      $html = <<<HTML
+
+          </table>
+        </div>
+      </div>
+
+      HTML;
+      echo $html;
+      
   }
 
   public function viewOneItem($product)
@@ -32,11 +64,20 @@ class AdminView
 
     $html = <<<HTML
 
-      <div class="col-lg-9">
-        <div class="row justify-content-center">
-
-        </div>
-      </div>
+            <tr>
+                 <td>$product[title]</td>
+                 <td>$product[description]</td>
+                 <td>$product[image]</td>
+                 <td>$product[price]</td>
+                 <td>
+                 <a href="#" class='btn btn-sm btn-outline-danger'>  
+                 Delete
+                 </td>
+                 <td>
+                 <a href="#" class='btn btn-sm btn-outline-success'>
+                 Edit
+                 </td>
+            </tr>
 
     HTML;
 

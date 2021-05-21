@@ -34,15 +34,15 @@
         </div>
     </nav>
     <!-- Page Content-->
-    <div class="container">
-        <div class="row my-4">
-            <div class="col-lg-3">
-                <!-- <h1 class="my-4">Shop Name</h1> -->
+    <div class="container my-4">
+        <!--  <div class="row my-4">
+             <div class="col-lg-3">
+               <h1 class="my-4">Shop Name</h1> 
                 <div class="list-group">
                     <a class="list-group-item" href="#!">Category 1</a>
                     <a class="list-group-item" href="#!">Category 2</a>
                     <a class="list-group-item" href="#!">Category 3</a>
-                </div>
-            </div>
-            <div class="col-lg-9">
-                <div class="row">
+                </div> 
+        </div>-->
+        <div class="col-lg-12">
+            <div class="row">
