@@ -12,6 +12,11 @@ class AdminView
       include_once("views/include/footer.php");
   }
 
+  public function viewModalProduct()
+  {
+    include_once("views/include/modalProduct.php");
+  }
+
 
   public function viewAdminPage($products)
   {
@@ -70,13 +75,14 @@ class AdminView
                  <td>$product[image]</td>
                  <td>$product[price]</td>
                  <td>
-                 <a href="#" class='btn btn-sm btn-outline-danger'>  
+                 <a href="#" class='btn btn-sm btn-outline-danger' >  
                  Delete
                  </td>
                  <td>
-                 <a href="#" class='btn btn-sm btn-outline-success'>
+                 <!-- Update product-->
+                 <button type="button" class='btn btn-sm btn-outline-success' data-toggle='modal' data-target='#modalProduct'>
                  Edit
-                 </td>
+              </td>
             </tr>
 
     HTML;

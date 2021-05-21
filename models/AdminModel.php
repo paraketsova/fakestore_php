@@ -16,12 +16,12 @@ class AdminModel
   return $products;
  }
 
-//  public function fetchOneProductById($id)
-//   {
-//     $statement = "SELECT * FROM products WHERE product_id = :id";
-//     $params = array(":id" => $id);
-//     $product = $this->db->select($statement, $params);
-//     return $product[0] ?? false;
-//   }
+ // public function fetchOneProductById($id)
+ //  {
+ //    $statement = "SELECT * FROM products WHERE product_id = :id";
+ //    $params = array(":id" => $id);
+ //    $product = $this->db->select($statement, $params);
+ //    return $product[0] ?? false;
+ //  }
 
 }

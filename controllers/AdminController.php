@@ -14,8 +14,19 @@ class AdminController
   {
     $this->view->viewHeader("Hej Admin!");
     $products = $this->model->fetchAllProducts();
+    //$id = $this->sanitize($_GET['id']); // skapa id när man klickar på en film
+    //$product = $this->model->fetchProductById($id);
+
     $this->view->viewAdminPage($products);
+    $this->view->viewModalProduct();
     $this->view->viewFooter();
   }
 
+  // public function sanitize($text)
+  // {
+  //   $text = trim($text);
+  //   $text = stripslashes($text);
+  //   $text = htmlspecialchars($text);
+  //   return $text;
+  // }
 }
