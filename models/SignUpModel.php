@@ -12,15 +12,18 @@ class SignUpModel
     public function signupUser($name, $email, $password)
     {
         if (isset($_POST)) {
-            $statement =  "INSERT INTO customers (name, email, password) 
-                           VALUES (:name, :email, :password)";
+            $statement =  "INSERT INTO customers (name, email, password) VALUES (:name, :email, :password)";
             $parameters = array(
                 ':name' => $name,
                 ':email' => $email,
                 ':password' => $password
             );
-            $newCustomer = $this->db->insert($statement, $parameters);
-            return array('newCustomer' => $newCustomer) ?? false;               
+            try {
+                $newCustomer = $this->db->insert($statement, $parameters);
+                return array('newCustomer' => $newCustomer);
+            } catch (Exception $e) {
+                return false;
+            }
         }
     }
-}    
+}

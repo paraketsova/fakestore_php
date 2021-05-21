@@ -1,14 +1,14 @@
 <?php
 
 /*******************************************
- * 
+ *
  *     A General Purpose Database Class
- * 
+ *
  ******************************************/
 
  class Database
 {
- 
+
  private $conn = null;
 
  public function __construct($database, $username = "root", $password = "root", $servername = "localhost")
@@ -35,7 +35,7 @@
    $stmt->execute($input_parameters);
    return $stmt;
   } catch (PDOException $e) {
-    echo "Error: " . $e->getMessage() . "<br>";
+    //echo "Error: " . $e->getMessage() . "<br>";
     throw new Exception($e->getMessage());
   }
  }

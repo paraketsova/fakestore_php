@@ -23,7 +23,7 @@ class SignUpController
 
 
   public function validateSignUp(){
-    $name = $this->sanitize($_POST['name']);  
+    $name = $this->sanitize($_POST['name']);
     $email = $this->sanitize($_POST['email']);
     $pass = $this->sanitize($_POST['password']);
     $password = md5($pass);

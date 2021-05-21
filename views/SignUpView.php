@@ -25,23 +25,11 @@ class SignUpView
         );
     }
 
-    public function viewErrorMessage($customer)
+    public function viewErrorMessage()
     {
         $this->printMessage(
-            "<h4> $customer finns problem!</h4>
-            <h5>Kontakta kundtjänst</h5>
-            </div> <!-- col  avslutar Beställningsformulär -->
-            ",
-            "warning"
-        );
-    }
-
-    public function viewErrorEmailMessage($email)
-    {
-        $this->printMessage(
-            "<h4> $email Opps här finns problem!</h4>
-            <h5>Duplikate!</h5>
-            </div> <!-- col  avslutar Beställningsformulär -->
+            "<h4> Opps här finns problem!</h4>
+            <h5>Kontakta kundtjänst, det email finns i vårt kundregister.</h5>
             ",
             "warning"
         );

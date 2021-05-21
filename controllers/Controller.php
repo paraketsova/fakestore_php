@@ -12,29 +12,6 @@ class Controller
     $this->view = $view;
   }
 
-  // private function router()
-  // {
-  //   //if $page = $_POST['page'];
-  //   $page = $_GET['page'] ?? "";
-
-//     switch ($page) {
-//       case "about":
-//         $this->about();
-//         break;
-//       case "product":
-//         $this->getOneProduct();
-//         break;
-//       case "login":
-//         $this->login();
-//         break;
-// /*       case "cart":
-//         $this->getProductToCart();
-//         break; */
-//       default:
-//         $this->getAllProducts();
-//     }
-//   }
-
   public function index()
   {
     $this->view->viewHeader("");

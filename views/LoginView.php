@@ -25,13 +25,11 @@ class LoginView
         );
     }
 
-    public function viewErrorMessage($customer)
+    public function viewErrorMessage()
     {
         $this->printMessage(
-            "<h4> $customer finns ej i vårt kundregister!</h4>
-            <h5>Kontakta kundtjänst</h5>
-            </div> <!-- col  avslutar Beställningsformulär -->
-            ",
+            "<h4> Fell email eller lösenord </h4>
+            <h5>Controlera dina uppgifter!</h5>",
             "warning"
         );
     }

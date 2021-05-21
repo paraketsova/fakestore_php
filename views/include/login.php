@@ -8,7 +8,7 @@
    </div>
    <div class="row align-items-center">
     <div class="col mt-4">
-     <input type="text" class="form-control" name="email" placeholder="Email" aria-label=".form-control-sm example">
+     <input type="email" class="form-control" name="email" placeholder="Email" aria-label=".form-control-sm example">
     </div>
    </div>
    <div class="row align-items-center">

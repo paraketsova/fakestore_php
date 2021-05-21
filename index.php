@@ -7,17 +7,19 @@ require_once("models/Database.php");
 require_once("models/Model.php");
 require_once("models/LoginModel.php");
 require_once("models/SignUpModel.php");
+require_once("models/AdminModel.php");
 
 // Viwes
 require_once("views/View.php");
 require_once("views/LoginView.php");
 require_once("views/SignUpView.php");
+require_once("views/AdminView.php");
 
 // Controllers
 require_once("controllers/Controller.php");
 require_once("controllers/LoginController.php");
 require_once("controllers/SignUpController.php");
-
+require_once("controllers/AdminController.php");
 
 $database   = new Database("webshopdb", "root", "root");
 
@@ -32,6 +34,10 @@ $loginController = new LoginController($loginModel, $loginView);
 $signUpModel = new SignUpModel($database);
 $signUpView = new SignUpView();
 $signUpController = new SignUpController($signUpModel, $signUpView);
+
+$adminModel = new AdminModel($database);
+$adminView  = new AdminView();
+$adminController = new AdminController($adminModel, $adminView);
 
 // Simple Router
 $url = getUrl();
@@ -50,7 +56,10 @@ switch ($page) {
         break;
     case "signup":
         $signUpController->signUp();
-        break;    
+        break;
+    case "admin":
+        $adminController->admin();
+        break;
 }
 
 function getUrl()
