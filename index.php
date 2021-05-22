@@ -11,64 +11,60 @@ require_once("models/AdminModel.php");
 
 // Viwes
 require_once("views/View.php");
+require_once("views/AboutView.php");
 require_once("views/LoginView.php");
 require_once("views/SignUpView.php");
 require_once("views/AdminView.php");
 
 // Controllers
-require_once("controllers/Controller.php");
+require_once("controllers/IndexController.php");
+require_once("controllers/AboutController.php");
 require_once("controllers/LoginController.php");
 require_once("controllers/SignUpController.php");
 require_once("controllers/AdminController.php");
 
-$database   = new Database("webshopdb", "root", "root");
-
-$model      = new Model($database);
-$view       = new View();
-$controller = new Controller($model, $view);
-
-$loginModel = new LoginModel($database);
-$loginView  = new LoginView();
-$loginController = new LoginController($loginModel, $loginView);
-
-$signUpModel = new SignUpModel($database);
-$signUpView = new SignUpView();
-$signUpController = new SignUpController($signUpModel, $signUpView);
-
-$adminModel = new AdminModel($database);
-$adminView  = new AdminView();
-$adminController = new AdminController($adminModel, $adminView);
+$database = new Database("webshopdb", "root", "root");
 
 // Simple Router
-$url = getUrl();
-$page = $url[0] ?? "";
-$param = $url[1] ?? "";
-
-switch ($page) {
-    case "":
-        $controller->index();
-        break;
-    case "about":
-        $controller->about();
-        break;
-    case "login":
-        $loginController->login();
-        break;
-    case "signup":
-        $signUpController->signUp();
-        break;
-    case "admin":
-        $adminController->admin();
-        break;
+// url строка = имя контроллера / имя функции из файла контроллера
+$requestUrl = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+$requestString = substr($requestUrl, strlen(URLROOT));
+$urlParams = explode('/', $requestString);
+array_shift($urlParams);
+$controllerName = array_shift($urlParams);
+$actionName = strtolower(array_shift($urlParams));
+if ($actionName == "") {
+    $actionName = "index";
 }
 
-function getUrl()
-{
-    if (isset($_GET['url'])) {
-        $url = rtrim($_GET['url'], '/');
-        $url = filter_var($url, FILTER_SANITIZE_URL);
-        $url = explode('/', $url);
-        //print_r($url); - test
-        return $url;
-    }
+switch ($controllerName) {
+    case "":
+        $model = new Model($database);
+        $view = new View();
+        $controller = new IndexController($model, $view);
+        $controller->$actionName();
+        break;
+    case "about":
+        $view = new AboutView();
+        $controller = new AboutController($view);
+        $controller->$actionName();
+        break;
+    case "login":
+        $model = new LoginModel($database);
+        $view = new LoginView();
+        $controller = new LoginController($model, $view);
+        $controller->$actionName();
+        break;
+    case "signup":
+        $model = new SignUpModel($database);
+        $view = new SignUpView();
+        $controller = new SignUpController($model, $view);
+        $controller->$actionName();
+        break;
+    case "admin":
+        $model = new AdminModel($database);
+        $view = new AdminView();
+        $controller = new AdminController($model, $view);
+        $controller->$actionName();
+        break;
 }

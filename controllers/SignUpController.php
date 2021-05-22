@@ -2,27 +2,29 @@
 
 class SignUpController
 {
-    private $model;
-    private $view;
+  private $model;
+  private $view;
 
-    public function __construct($model, $view)
-    {
-        $this->model = $model;
-        $this->view = $view;
-    }
+  public function __construct($model, $view)
+  {
+    $this->model = $model;
+    $this->view = $view;
+  }
 
-    public function signUp(){
+  public function index()
+  {
     $this->view->viewHeader("");
     $this->view->viewSignUpPage();
 
-    if($_SERVER['REQUEST_METHOD'] === 'POST'){
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $this->validateSignUp();
     }
     $this->view->viewFooter();
   }
 
 
-  public function validateSignUp(){
+  public function validateSignUp()
+  {
     $name = $this->sanitize($_POST['name']);
     $email = $this->sanitize($_POST['email']);
     $pass = $this->sanitize($_POST['password']);
@@ -30,14 +32,14 @@ class SignUpController
 
     $checking = $this->model->signupUser($name, $email, $password);
 
-    if($checking){
+    if ($checking) {
       $this->view->viewConfirmSignUpMessage($email);
     } else {
       $this->view->viewErrorMessage($email);
     }
   }
 
-    /**
+  /**
    * Sanitize Inputs
    */
   public function sanitize($text)
@@ -47,5 +49,4 @@ class SignUpController
     $text = htmlspecialchars($text);
     return $text;
   }
-
 }

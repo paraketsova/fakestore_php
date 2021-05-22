@@ -10,7 +10,7 @@ class AdminController
     $this->view = $view;
   }
 
-  public function admin()
+  public function index()
   {
     $this->view->viewHeader("Hej Admin!");
     $products = $this->model->fetchAllProducts();
@@ -20,5 +20,9 @@ class AdminController
     $this->view->viewAdminPage($products);
     $this->view->viewFooter();
   }
-  
+
+  public function edit() {
+    
+  }
+
 }
