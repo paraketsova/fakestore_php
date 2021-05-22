@@ -18,15 +18,7 @@ class AdminController
     //$product = $this->model->fetchProductById($id);
 
     $this->view->viewAdminPage($products);
-    $this->view->viewModalProduct();
     $this->view->viewFooter();
   }
-
-  // public function sanitize($text)
-  // {
-  //   $text = trim($text);
-  //   $text = stripslashes($text);
-  //   $text = htmlspecialchars($text);
-  //   return $text;
-  // }
+  
 }

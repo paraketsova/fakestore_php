@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: May 19, 2021 at 02:39 PM
+-- Generation Time: May 22, 2021 at 08:42 AM
 -- Server version: 5.7.32
 -- PHP Version: 7.4.12
 
@@ -57,7 +57,8 @@ INSERT INTO `customers` (`customer_id`, `name`, `email`, `password`) VALUES
 (3, 'Anna Petersson', 'anna@petersson.se', '97a9d330e236c8d067f01da1894a5438'),
 (4, 'Helena Strand', 'helena@strand.se', '8f5696351d40139b803a68a8cef76cea'),
 (5, 'Kate Svensson', 'kate@svensson.se', 'a6cb3dfcedc2356766917ede95a12a23'),
-(6, 'Bjorn Bjornsson', 'bjorn@bjornsson.se', '4547f455d8e15fc105802a5967e09001');
+(6, 'Bjorn Bjornsson', 'bjorn@bjornsson.se', '4547f455d8e15fc105802a5967e09001'),
+(25, 'X', 'x@y.z', 'e10adc3949ba59abbe56e057f20f883e');
 
 -- --------------------------------------------------------
 
@@ -120,7 +121,14 @@ INSERT INTO `products` (`product_id`, `title`, `description`, `image`, `price`) 
 (25, 'LA CHAISE LOUNGESTOL', 'Varumärke: Vitra\r\nNär Charles och Ray Eames skapade loungestolen La Chaise, för en tävling anordnad av Museum of Modern Art i New York, inspirerades de av Gaston Lachaises skulptur \"Floating Figure\". La Chaise inbjuder till flera olika avslappnande sittpositioner och har sedan länge etablerat sig som en av de verkliga ikonerna inom organisk design.', 'vitra_loungestol.jpeg', 88900),
 (26, 'MY SECRET PLACE BORDSLAMPA', 'Varumärke: SELETTI\r\nMy Secret Place är en bordslampa från Seletti, formgiven av Marcantonio. Uttrycket är lekfullt och drömskt med en stege som leder upp till en hemlig plats – den lysande månen. Bordslampan är tillverkad av resin och blir ett dekorativt inslag i ditt hem samtidigt som den skildrar en historia. Marcantonio är välkänd för sina livfulla kreationer där fantasi, humor och ironi kombineras på ett konstnärligt sätt.', 'luna_bordslampa.jpeg', 2089),
 (27, 'JURASSIC LAMP REX BORDSLAMPA', 'Varumärke: SELETTI\r\nJurassic Lamp Rex är en innovativ bordslampa formgiven av Marcantonio för italienska Seletti. På tyrannosaurusens rygg sitter sju LED-lampor som ger ett mjukt och behagligt sken. Tyrannosaurusen, även kallad T-Rex, levde för 70-65 miljoner år sedan och anses ha varit en av de största köttätande dinosaurerna. Lampan Jurassic Lamp Rex har en 2,5 meter lång sladd och är tillverkad i resin.', 'dinosaur_lamp.jpeg', 2180),
-(28, 'QLOCKTWO TOUCH BORDSKLOCKA M. ALARM', 'Varumärke: QLOCKTWO\r\nQlocktwo Touch är en bordsklocka formgiven av Biegert & Funk. Med hjälp av 110 bokstäver som lyses upp av lika många LED-lampor visar Qlocktwo vad klockan är på ett okonventionellt och spännande sätt. Tillsammans bildar de upplysta bokstäverna ”Klockan är …” och var femte minut slår klockan om. För att indikera minuterna mellan femminutersintervallerna finns fyra ljuspunkter i vardera av klockans hörn. Fronten hålls på plats med hjälp av magneter och går lätt att byta ut om man önskar ändra utseende eller färg. Qlocktwo Touch har en smidig alarmfunktion med snooze samt flera andra touchfunktioner som underlättar din vardag. Qlocktwo finns att få med front på upp till 20 olika språk, men som standard levereras Qlocktwo med front på svenska.', 'klocka.jpeg', 6100);
+(28, 'QLOCKTWO TOUCH BORDSKLOCKA M. ALARM', 'Varumärke: QLOCKTWO\r\nQlocktwo Touch är en bordsklocka formgiven av Biegert & Funk. Med hjälp av 110 bokstäver som lyses upp av lika många LED-lampor visar Qlocktwo vad klockan är på ett okonventionellt och spännande sätt. Tillsammans bildar de upplysta bokstäverna ”Klockan är …” och var femte minut slår klockan om. För att indikera minuterna mellan femminutersintervallerna finns fyra ljuspunkter i vardera av klockans hörn. Fronten hålls på plats med hjälp av magneter och går lätt att byta ut om man önskar ändra utseende eller färg. Qlocktwo Touch har en smidig alarmfunktion med snooze samt flera andra touchfunktioner som underlättar din vardag. Qlocktwo finns att få med front på upp till 20 olika språk, men som standard levereras Qlocktwo med front på svenska.', 'klocka.jpeg', 6100),
+(47, 'Test', 'gnflkgjfkjhfhjnflsdjfdjgh', 'no-image.png', 10800),
+(48, 'Test1', 'fkgjdljhkjhdshggjljg', 'ak_1330.jpg', 1),
+(49, 'Test2', 'hgkfgjlkhjgfjkhdgjhjkterklghhfhhhhhjhjgljfhgdhgjhhggdhghgrhgdhfgh', 'no-image.png', 28283),
+(50, 'Test3', 'ngngthjthjtj', 'no-image.png', 2342),
+(51, 'Test4', 'ngljkjjgjgjj', 'no-image.png', 1234),
+(52, 'Test5', 'ngljkjjgjgjj', 'no-image.png', 1234),
+(53, 'Test6', 'nfkgjkjhktjhggfgjfjg', 'no-image.png', 1234);
 
 --
 -- Indexes for dumped tables
@@ -168,7 +176,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -180,7 +188,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- Constraints for dumped tables

@@ -12,12 +12,6 @@ class AdminView
       include_once("views/include/footer.php");
   }
 
-  public function viewModalProduct()
-  {
-    include_once("views/include/modalProduct.php");
-  }
-
-
   public function viewAdminPage($products)
   {
     $this->viewProductsTable($products);
@@ -25,12 +19,9 @@ class AdminView
 
   public function viewProductsTable($products)
   {
-      
-
       $url = URLROOT;
 
       $html = <<<HTML
-
       <div class="col-lg-12">
         <div class="row justify-content-center">
          <table class=table> 
@@ -80,7 +71,7 @@ class AdminView
                  </td>
                  <td>
                  <!-- Update product-->
-                 <button type="button" class='btn btn-sm btn-outline-success' data-toggle='modal' data-target='#modalProduct'>
+                 <a href="#" class='btn btn-sm btn-outline-success'>
                  Edit
               </td>
             </tr>
