@@ -26,17 +26,21 @@ require_once("controllers/AdminController.php");
 $database = new Database("webshopdb", "root", "root");
 
 // Simple Router
-// url строка = имя контроллера / имя функции из файла контроллера
+
+// working with querystring and get info that we need to work with
+// the first part of url after "fakestore_php" is controller name 
+// and second part is the name of controller function
 $requestUrl = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 $requestString = substr($requestUrl, strlen(URLROOT));
 $urlParams = explode('/', $requestString);
 array_shift($urlParams);
-$controllerName = array_shift($urlParams);
+$controllerName = strtolower(array_shift($urlParams));
 $actionName = strtolower(array_shift($urlParams));
 if ($actionName == "") {
     $actionName = "index";
 }
 
+// switch between controllers
 switch ($controllerName) {
     case "":
         $model = new Model($database);
