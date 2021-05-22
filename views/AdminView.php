@@ -12,7 +12,12 @@ class AdminView
       include_once("views/include/footer.php");
   }
 
-  public function viewAdminPage($products)
+  public function viewAdminIndex()
+  {
+    include_once("views/include/admin.php");
+  }
+
+  public function viewAdminProducts($products)
   {
     $this->viewProductsTable($products);
   }
@@ -24,7 +29,7 @@ class AdminView
       $html = <<<HTML
       <div class="col-lg-12">
         <div class="row justify-content-center">
-         <table class=table> 
+         <table class=table>
             <tr>
                 <th>Title</th>
                 <th>Description</th>
@@ -42,7 +47,7 @@ class AdminView
         $this->viewOneItem($product);
       //echo "<pre>"; print_r($products); // test
       }
-      
+
       $html = <<<HTML
 
           </table>
@@ -51,7 +56,7 @@ class AdminView
 
       HTML;
       echo $html;
-      
+
   }
 
   public function viewOneItem($product)
@@ -66,7 +71,7 @@ class AdminView
                  <td>$product[image]</td>
                  <td>$product[price]</td>
                  <td>
-                 <a href="#" class='btn btn-sm btn-outline-danger' >  
+                 <a href="#" class='btn btn-sm btn-outline-danger' >
                  Delete
                  </td>
                  <td>
