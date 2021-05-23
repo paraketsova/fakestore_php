@@ -1,5 +1,5 @@
 <?php
-class ShoppingCartController
+class ProductController
 {
   private $model;
   private $view;
@@ -19,6 +19,16 @@ class ShoppingCartController
     $this->view->viewFooter();
   }
 
+  public function add($id, $quantity, $price) {
+    if (!isset($_SESSION['cart'])) {
+      $_SESSION['cart'] = array();
+    }
+    $product = array();
+    $product['id'] = $id;
+    $product['quantity'] = $quantity;
+    $product['price'] = $price;
+    array_push($_SESSION['cart'], $product);
+  }
    /**
    * Sanitize
    */

@@ -21,7 +21,7 @@ class AdminController
   {
     $this->view->viewHeader("");
     $this->view->viewUnathorizedMessage();
-    $this->view->viewFooter();
+    // $this->view->viewFooter();
   }
 
   public function products()
