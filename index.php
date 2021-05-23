@@ -7,12 +7,14 @@ require_once("models/Model.php");
 require_once("models/LoginModel.php");
 require_once("models/SignUpModel.php");
 require_once("models/AdminModel.php");
+require_once("models/ShoppingCartModel.php");
 // Viwes
 require_once("views/View.php");
 require_once("views/AboutView.php");
 require_once("views/LoginView.php");
 require_once("views/SignUpView.php");
 require_once("views/AdminView.php");
+require_once("views/ShoppingCartView.php");
 // Controllers
 require_once("controllers/IndexController.php");
 require_once("controllers/AboutController.php");
@@ -20,6 +22,8 @@ require_once("controllers/LoginController.php");
 require_once("controllers/LogoutController.php");
 require_once("controllers/SignUpController.php");
 require_once("controllers/AdminController.php");
+require_once("controllers/ShoppingCartController.php");
+
 $database = new Database("webshopdb", "root", "root");
 // Simple Router
 // working with querystring and get info that we need to work with
@@ -73,5 +77,11 @@ switch ($controllerName) {
         } else {
             $controller->unauthorized();
         }
+        break;
+    case "shoppingcart":
+        $model = new ShoppingCartModel($database);
+        $view = new ShoppingCartView();
+        $controller = new ShoppingCartController($model, $view);
+        $controller->$actionName();
         break;
 }
