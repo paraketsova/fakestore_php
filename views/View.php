@@ -29,7 +29,7 @@ class View
     {
         $html = <<<HTML
             <div class="col-lg-4 col-md-6 mb-4">
-                <a id="link" href="shoppingcart?id=$product[product_id]">
+                <a id="link" href="product?id=$product[product_id]">
                     <div class="card h-100">
                         <img class="card-img-top" src="images/$product[image]" alt="$product[title]" />
                         <div class="card-body">

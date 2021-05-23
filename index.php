@@ -7,14 +7,14 @@ require_once("models/Model.php");
 require_once("models/LoginModel.php");
 require_once("models/SignUpModel.php");
 require_once("models/AdminModel.php");
-require_once("models/ShoppingCartModel.php");
+require_once("models/ProductModel.php");
 // Viwes
 require_once("views/View.php");
 require_once("views/AboutView.php");
 require_once("views/LoginView.php");
 require_once("views/SignUpView.php");
 require_once("views/AdminView.php");
-require_once("views/ShoppingCartView.php");
+require_once("views/ProductView.php");
 // Controllers
 require_once("controllers/IndexController.php");
 require_once("controllers/AboutController.php");
@@ -22,7 +22,7 @@ require_once("controllers/LoginController.php");
 require_once("controllers/LogoutController.php");
 require_once("controllers/SignUpController.php");
 require_once("controllers/AdminController.php");
-require_once("controllers/ShoppingCartController.php");
+require_once("controllers/ProductController.php");
 
 $database = new Database("webshopdb", "root", "root");
 // Simple Router
@@ -78,10 +78,10 @@ switch ($controllerName) {
             $controller->unauthorized();
         }
         break;
-    case "shoppingcart":
-        $model = new ShoppingCartModel($database);
-        $view = new ShoppingCartView();
-        $controller = new ShoppingCartController($model, $view);
+    case "product":
+        $model = new ProductModel($database);
+        $view = new ProductView();
+        $controller = new ProductController($model, $view);
         $controller->$actionName();
         break;
 }
