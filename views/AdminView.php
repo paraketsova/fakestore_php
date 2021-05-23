@@ -44,7 +44,7 @@ class AdminView
       echo $html;
 
       foreach ($products as $product) {
-        $this->viewOneItem($product);
+        $this->renderProductLine($product);
       //echo "<pre>"; print_r($products); // test
       }
 
@@ -59,32 +59,64 @@ class AdminView
 
   }
 
-  public function viewOneItem($product)
+  public function renderProductLine($product)
   {
-    $url = URLROOT;
-
     $html = <<<HTML
 
-            <tr>
-                 <td>$product[title]</td>
-                 <td>$product[description]</td>
-                 <td>$product[image]</td>
-                 <td>$product[price]</td>
-                 <td>
-                 <a href="#" class='btn btn-sm btn-outline-danger' >
-                 Delete
-                 </td>
-                 <td>
-                 <!-- Update product-->
-                 <a href="#" class='btn btn-sm btn-outline-success'>
-                 Edit
-              </td>
-            </tr>
+      <tr>
+        <td>$product[title]</td>
+        <td>$product[description]</td>
+        <td>$product[image]</td>
+        <td>$product[price]</td>
+        <td>
+          <!-- Update product-->
+          <a href="edit?id=$product[product_id]" class='btn btn-sm btn-outline-success'>
+          Edit
+          </td>
+        <td>
+          <form method='post' action="delete">
+          <!-- Delete product-->
+            <input type="hidden" name="id" value="$product[product_id]" />
+            <button class='btn btn-sm btn-outline-danger' >
+            Delete</button>
+          </form>
+        </td>
+      </tr>
 
     HTML;
 
     echo $html;
   }
 
-
+  public function editProduct($product)
+  {
+    $html = <<<HTML
+    <div class="row col-lg-12 text-center">
+      <h2>Edit product</h2>
+    </div>
+    <form action="update" method="post" class="row">
+      <input type="hidden" name="id" value="$product[product_id]" />
+      <div class="col-lg-12">
+        <label for="title">Title</label>
+        <input id="title" type="text" name="title" class="form-control mt-2 text-center" value="$product[title]" required>
+      </div>
+      <div class=" col-lg-12">
+        <label for="description">Description</label>
+        <textarea class="form-control mt-2 text-center" id="description" name="description" required >$product[description]</textarea>
+      </div>
+      <div class="col-lg-12">
+        <label for="image">Image</label>
+        <input id="image" type="text" name="image" class="form-control mt-2 text-center" value="$product[image]" required>
+      </div>
+      <div class="col-lg-12">
+        <label for="price">Price</label>
+        <input id="price" type="number" name="price" class="form-control mt-2 text-center" value="$product[price]" required>
+      </div>
+      <div class='col-lg-12 mx-auto'>
+        <input type='submit' class='form-control mt-2 btn btn-outline-primary' value='Update'>
+      </div>
+    </form>
+    HTML;
+    echo $html;
+  }
 }

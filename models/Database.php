@@ -40,7 +40,7 @@
   }
  }
 
- /**
+  /**
   * SELECT
   */
  public function select($statement, $input_parameters = [])
@@ -49,7 +49,7 @@
   return $stmt->fetchAll();
  }
 
- /**
+  /**
   * INSERT
   */
  public function insert($statement, $input_parameters = [])
@@ -66,7 +66,7 @@
   $this->execute($statement, $input_parameters);
  }
 
- /**
+  /**
   * DELETE
   */
  public function delete($statement, $input_parameters = [])
