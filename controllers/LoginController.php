@@ -17,13 +17,13 @@ class LoginController
     $this->view->viewLoginPage();
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-      $this->validateLogin();
+      $this->login();
     }
     $this->view->viewFooter();
   }
 
 
-  public function validateLogin()
+  public function login()
   {
     $email = $this->sanitize($_POST['email']);
     $pass = $this->sanitize($_POST['password']);
@@ -32,9 +32,15 @@ class LoginController
     $checking = $this->model->loginUser($email, $password);
 
     if ($checking) {
+      // $_SESSION["login"] = $email;
       $this->view->viewConfirmLoginMessage($email);
+      if ($email == 'admin@admin.se') {
+        header("Location: " . URLROOT . "/admin");
+      } else {
+        header("Location: " . URLROOT);
+      }
     } else {
-      $this->view->viewErrorMessage($email);
+      $this->view->viewErrorMessage();
     }
   }
 
