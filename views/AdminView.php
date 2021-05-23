@@ -55,8 +55,6 @@ class AdminView
 
   public function viewProductsTable($products)
   {
-      $url = URLROOT;
-
     $html = <<<HTML
       <div class="col-lg-12">
         <div class="row justify-content-center">
@@ -194,8 +192,6 @@ class AdminView
 
 public function viewOrdersTable($orders)
   {
-      $url = URLROOT;
-
     $html = <<<HTML
       <div class="col-lg-12">
         <div class="row justify-content-center">
@@ -216,7 +212,7 @@ public function viewOrdersTable($orders)
 
       foreach ($orders as $order) {
         $this->renderOrderLine($order);
-      //echo "<pre>"; print_r($orders); // test
+        //echo "<pre>"; print_r($orders); // test
       }
 
       $html = <<<HTML
@@ -263,23 +259,23 @@ public function viewOrdersTable($orders)
       <input type="hidden" name="id" value="$order[order_id]" />
       <div class="col-lg-12">
         <label for="id">Order number</label>
-        <input id="id" type="text" name="id" class="form-control mt-2 text-center" value="$order[order_id]">
+        <input id="id" type="text" name="id" class="form-control mt-2 text-center" value="$order[order_id]" readonly>
       </div>
       <div class=" col-lg-12">
         <label for="customer">Customer</label>
-        <input id="customer" type="text" name="customer"  class="form-control mt-2 text-center" value="$order[customer_id]">
+        <input id="customer" type="text" name="customer"  class="form-control mt-2 text-center" value="$order[customer_id]" readonly>
       </div>
       <div class="col-lg-12">
         <label for="product">Product</label>
-        <input id="product" type="text" name="product" class="form-control mt-2 text-center" value="$order[product_id]" >
+        <input id="product" type="text" name="product" class="form-control mt-2 text-center" value="$order[product_id]"  readonly>
       </div>
       <div class="col-lg-12">
         <label for="quantity">Quantity</label>
-        <input id="quantity" type="number" name="quantity" class="form-control mt-2 text-center" value="$order[quantity]" >
+        <input id="quantity" type="number" name="quantity" class="form-control mt-2 text-center" value="$order[quantity]"  readonly>
       </div>
       <div class="col-lg-12">
         <label for="order_date">Order date</label>
-        <input id="order_date" type="text" name="order_date" class="form-control mt-2 text-center" value="$order[order_date]" >
+        <input id="order_date" type="text" name="order_date" class="form-control mt-2 text-center" value="$order[order_date]"  readonly>
       </div>
       <div class="col-lg-12">
         <label for="order_status">Order status</label>

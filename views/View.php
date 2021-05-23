@@ -27,8 +27,6 @@ class View
 
     public function viewOneProduct($product)
     {
-        $url = URLROOT;
-
         $html = <<<HTML
             <div class="col-lg-4 col-md-6 mb-4">
                 <a id="link" href="?page=product&id=$product[product_id]">
@@ -80,7 +78,7 @@ class View
         echo $html;
     }
 
-    
+
 
     /* public function viewConfirmMessage($customer, $lastInsertId)
     {
