@@ -42,4 +42,17 @@ class AdminModel
     $this->db->update($statement, $parameters);
  }
 
+  // Create new product
+  public function createProduct($product)
+  {
+    $statement = ("INSERT INTO products (title, description, image, price) VALUES (:title, :description, :image, :price)");
+    $parameters = array(
+      ':title' => $product['title'],
+      ':description' => $product['description'],
+      ':image' => $product['image'],
+      ':price' => $product['price']
+    );
+    $this->db->insert($statement, $parameters);
+  }
+
 }

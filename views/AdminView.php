@@ -26,10 +26,12 @@ class AdminView
   {
       $url = URLROOT;
 
-      $html = <<<HTML
+    $html = <<<HTML
       <div class="col-lg-12">
         <div class="row justify-content-center">
-         <table class=table>
+        <!-- button for create new product -->
+          <a href="new" class='btn btn-secondary btn-lg mb-5'>Create new product</a>
+          <table class=table>
             <tr>
                 <th>Title</th>
                 <th>Description</th>
@@ -119,4 +121,40 @@ class AdminView
     HTML;
     echo $html;
   }
+
+  /***
+   * Function to create new product
+   */
+  public function newProduct()
+  {
+    $html = <<<HTML
+    <div class="row col-lg-12 text-center">
+        <h2>New product</h2>
+    </div>
+    <form action="create" method="post" class="row">
+      <input type="hidden" name="id" />
+        <div class="col-lg-12">
+            <label for="title">Title</label>
+            <input id="title" type="text" name="title" class="form-control mt-2 text-center" required>
+        </div>
+        <div class=" col-lg-12">
+            <label for="description">Description</label>
+            <textarea class="form-control mt-2 text-center" id="description" name="description" required ></textarea>
+        </div>
+        <div class="col-lg-12">
+            <label for="image">Image</label>
+            <input id="image" type="text" name="image" class="form-control mt-2 text-center" required>
+        </div>
+        <div class="col-lg-12">
+            <label for="price">Price</label>
+            <input id="price" type="number" name="price" class="form-control mt-2 text-center" required>
+        </div>
+        <div class='col-lg-12 mx-auto'>
+            <input type='submit' class='form-control mt-2 btn btn-outline-primary' value='Create'>
+        </div>
+    </form>
+    HTML;
+    echo $html;
+  }
+
 }

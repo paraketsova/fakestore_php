@@ -53,6 +53,25 @@ class AdminController
     header('Location: products');
   }
 
+  // Render form for new product
+  public function new()
+  {
+    $this->view->viewHeader("");
+    $this->view->newProduct();
+    $this->view->viewFooter();
+  }
+  // Create new product in db
+  public function create()
+  {
+    $product = array();
+    $product['title'] = $this->sanitize($_POST['title']);
+    $product['description'] = $this->sanitize($_POST['description']);
+    $product['image'] = $this->sanitize($_POST['image']);
+    $product['price'] = $this->sanitize($_POST['price']);
+    $this->model->createProduct($product);
+    header('Location: products');
+  }
+
   public function sanitize($text)
   {
     $text = trim($text);
