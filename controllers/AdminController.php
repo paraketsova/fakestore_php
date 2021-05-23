@@ -17,6 +17,13 @@ class AdminController
     $this->view->viewFooter();
   }
 
+  public function unauthorized()
+  {
+    $this->view->viewHeader("");
+    $this->view->viewUnathorizedMessage();
+    $this->view->viewFooter();
+  }
+
   public function products()
   {
     $this->view->viewHeader("");

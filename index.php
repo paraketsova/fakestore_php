@@ -1,4 +1,5 @@
 <?php
+session_start();
 define('URLROOT', 'http://localhost:8888/fakestore_php');
 // Models
 require_once("models/Database.php");
@@ -16,6 +17,7 @@ require_once("views/AdminView.php");
 require_once("controllers/IndexController.php");
 require_once("controllers/AboutController.php");
 require_once("controllers/LoginController.php");
+require_once("controllers/LogoutController.php");
 require_once("controllers/SignUpController.php");
 require_once("controllers/AdminController.php");
 $database = new Database("webshopdb", "root", "root");
@@ -32,6 +34,7 @@ $actionName = strtolower(array_shift($urlParams));
 if ($actionName == "") {
     $actionName = "index";
 }
+
 // switch between controllers
 switch ($controllerName) {
     case "":
@@ -51,6 +54,10 @@ switch ($controllerName) {
         $controller = new LoginController($model, $view);
         $controller->$actionName();
         break;
+    case "logout":
+        $controller = new LogoutController();
+        $controller->$actionName();
+        break;
     case "signup":
         $model = new SignUpModel($database);
         $view = new SignUpView();
@@ -61,6 +68,10 @@ switch ($controllerName) {
         $model = new AdminModel($database);
         $view = new AdminView();
         $controller = new AdminController($model, $view);
-        $controller->$actionName();
+        if (isset($_SESSION['email']) && $_SESSION['email'] == 'admin@admin.se') {
+            $controller->$actionName();
+        } else {
+            $controller->unauthorized();
+        }
         break;
 }

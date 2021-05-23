@@ -17,6 +17,28 @@ class AdminView
     include_once("views/include/admin.php");
   }
 
+  public function viewUnathorizedMessage()
+  {
+      $this->printMessage(
+          "<h4>Administrators only area</h4>
+          <h5>Controlera dina uppgifter!</h5>",
+          "warning"
+      );
+  }
+
+  public function printMessage($message, $messageType = "danger")
+  {
+      $html = <<< HTML
+
+          <div class="my-2 alert alert-$messageType">
+              $message
+          </div>
+
+      HTML;
+
+      echo $html;
+  }
+
   public function viewAdminProducts($products)
   {
     $this->viewProductsTable($products);

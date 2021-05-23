@@ -1,5 +1,3 @@
-<?php session_start(); ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,6 +15,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="<?= URLROOT ?>">WebShop</a>
+            <div class="navbar-brand"><?= isset($_SESSION['email']) ? $_SESSION['email'] : "" ?></div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
@@ -28,6 +27,7 @@
                     </li>
                     <li class="nav-item"><a class="nav-link" href="<?= URLROOT ?>/about">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="<?= URLROOT ?>/login">Log in</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?= URLROOT ?>/logout">Log out</a></li>
                     <li class="nav-item"><a class="nav-link" href="<?= URLROOT ?>/signup">Sign up</a></li>
                 </ul>
             </div>
