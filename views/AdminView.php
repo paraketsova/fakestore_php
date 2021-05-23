@@ -44,6 +44,15 @@ class AdminView
     $this->viewProductsTable($products);
   }
 
+  public function viewAdminOrders($orders)
+  {
+    $this->viewOrdersTable($orders);
+  }
+
+  /***
+  * Products
+  */
+
   public function viewProductsTable($products)
   {
       $url = URLROOT;
@@ -96,7 +105,7 @@ class AdminView
           <!-- Update product-->
           <a href="edit?id=$product[product_id]" class='btn btn-sm btn-outline-success'>
           Edit
-          </td>
+        </td>
         <td>
           <form method='post' action="delete">
           <!-- Delete product-->
@@ -179,4 +188,109 @@ class AdminView
     echo $html;
   }
 
+/***
+* Orders
+*/
+
+public function viewOrdersTable($orders)
+  {
+      $url = URLROOT;
+
+    $html = <<<HTML
+      <div class="col-lg-12">
+        <div class="row justify-content-center">
+          <table class=table>
+            <tr>
+                <th>Order number</th>
+                <th>Customer</th>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Order date</th>
+                <th>Status</th>
+                <th></th>
+            </tr>
+
+      HTML;
+
+      echo $html;
+
+      foreach ($orders as $order) {
+        $this->renderOrderLine($order);
+      //echo "<pre>"; print_r($orders); // test
+      }
+
+      $html = <<<HTML
+
+          </table>
+        </div>
+      </div>
+
+      HTML;
+      echo $html;
+  }
+
+  public function renderOrderLine($order)
+  {
+    $html = <<<HTML
+
+      <tr>
+        <td>$order[order_id]</td>
+        <td>$order[customer_id]</td>
+        <td>$order[product_id]</td>
+        <td>$order[quantity]</td>
+        <td>$order[order_date]</td>
+        <td>$order[order_status]</td>
+
+        <td>
+          <!-- Update order's status-->
+          <a href="edit_order?id=$order[order_id]" class='btn btn-sm btn-outline-success'>
+          Edit
+        </td>
+      </tr>
+
+    HTML;
+
+    echo $html;
+  }
+
+  public function editOrder($order)
+  {
+    $html = <<<HTML
+    <div class="row col-lg-12 text-center">
+      <h2>Edit order</h2>
+    </div>
+    <form action="update_order" method="post" class="row">
+      <input type="hidden" name="id" value="$order[order_id]" />
+      <div class="col-lg-12">
+        <label for="id">Order number</label>
+        <input id="id" type="text" name="id" class="form-control mt-2 text-center" value="$order[order_id]">
+      </div>
+      <div class=" col-lg-12">
+        <label for="customer">Customer</label>
+        <input id="customer" type="text" name="customer"  class="form-control mt-2 text-center" value="$order[customer_id]">
+      </div>
+      <div class="col-lg-12">
+        <label for="product">Product</label>
+        <input id="product" type="text" name="product" class="form-control mt-2 text-center" value="$order[product_id]" >
+      </div>
+      <div class="col-lg-12">
+        <label for="quantity">Quantity</label>
+        <input id="quantity" type="number" name="quantity" class="form-control mt-2 text-center" value="$order[quantity]" >
+      </div>
+      <div class="col-lg-12">
+        <label for="order_date">Order date</label>
+        <input id="order_date" type="text" name="order_date" class="form-control mt-2 text-center" value="$order[order_date]" >
+      </div>
+      <div class="col-lg-12">
+        <label for="order_status">Order status</label>
+        <input id="order_status" type="text" name="order_status" class="form-control mt-2 text-center" value="$order[order_status]" required>
+      </div>
+      <div class='col-lg-12 mx-auto'>
+        <input type='submit' class='form-control mt-2 btn btn-outline-primary' value='Update'>
+      </div>
+
+    </form>
+    HTML;
+    echo $html;
+  }
 }

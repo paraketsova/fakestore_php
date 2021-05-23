@@ -79,6 +79,38 @@ class AdminController
     header('Location: products');
   }
 
+  /**
+   * Orders
+   */
+  public function orders()
+  {
+    $this->view->viewHeader("");
+    $orders = $this->model->fetchAllOrders();
+    $this->view->viewAdminOrders($orders);
+    $this->view->viewFooter();
+  }
+
+  public function edit_order()
+  {
+    $id = $this->sanitize($_GET['id']);
+    $order = $this->model->fetchOneOrderById($id);
+    $this->view->viewHeader("");
+    $this->view->editOrder($order);
+    $this->view->viewFooter();
+  }
+
+  public function update_order()
+  {
+    $order = array();
+    $order['id'] = $this->sanitize($_POST['id']);
+    $order['order_status'] = $this->sanitize($_POST['order_status']);
+    $this->model->updateOrder($order);
+    header('Location: orders');
+  }
+
+  /**
+   * Sanitize
+   */
   public function sanitize($text)
   {
     $text = trim($text);

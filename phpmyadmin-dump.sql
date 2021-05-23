@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: May 22, 2021 at 08:42 AM
+-- Generation Time: May 23, 2021 at 10:11 AM
 -- Server version: 5.7.32
 -- PHP Version: 7.4.12
 
@@ -72,8 +72,19 @@ CREATE TABLE `orders` (
   `product_id` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
   `order_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `order_status` varchar(1) COLLATE utf8_swedish_ci NOT NULL
+  `order_status` varchar(11) COLLATE utf8_swedish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`order_id`, `customer_id`, `product_id`, `quantity`, `order_date`, `order_status`) VALUES
+(1, 1, 1, 1, '2021-05-23 12:07:12', 'Mottagen'),
+(2, 2, 2, 2, '2021-05-23 12:08:44', 'Mottagen'),
+(3, 3, 3, 3, '2021-05-23 12:09:35', 'Skickad'),
+(4, 4, 4, 4, '2021-05-23 12:10:47', 'Skickad'),
+(5, 5, 5, 5, '2021-05-23 12:10:47', 'Mottagen');
 
 -- --------------------------------------------------------
 
@@ -126,9 +137,7 @@ INSERT INTO `products` (`product_id`, `title`, `description`, `image`, `price`) 
 (48, 'Test1', 'fkgjdljhkjhdshggjljg', 'ak_1330.jpg', 1),
 (49, 'Test2', 'hgkfgjlkhjgfjkhdgjhjkterklghhfhhhhhjhjgljfhgdhgjhhggdhghgrhgdhfgh', 'no-image.png', 28283),
 (50, 'Test3', 'ngngthjthjtj', 'no-image.png', 2342),
-(51, 'Test4', 'ngljkjjgjgjj', 'no-image.png', 1234),
-(52, 'Test5', 'ngljkjjgjgjj', 'no-image.png', 1234),
-(53, 'Test6', 'nfkgjkjhktjhggfgjfjg', 'no-image.png', 1234);
+(51, 'New test', 'lalala', 'no-image.png', 2222222);
 
 --
 -- Indexes for dumped tables
@@ -182,7 +191,7 @@ ALTER TABLE `customers`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `products`
