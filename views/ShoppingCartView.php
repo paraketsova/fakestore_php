@@ -21,7 +21,7 @@ class ShoppingCartView
   {
     $html = <<<HTML
 
-    <div class="col-lg-7">
+    <div class="col-lg-7"> <!-- TODO - если не починим футер, то поставить в класс vh-100 -->
         <div class="card mt-4">
             <img class="card-img-top img-fluid" src="images/$product[image]" alt="$product[title]" />
             <div class="card-body ">
