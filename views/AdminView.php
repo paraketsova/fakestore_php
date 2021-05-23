@@ -6,11 +6,11 @@ class AdminView
   {
       include_once("views/include/header.php");
   }
-
+/*
   public function viewFooter()
   {
-      include_once("views/include/footer.php");
-  }
+      include_once("views/include/footer-sm.php");
+  } */
 
   public function viewAdminIndex()
   {
@@ -59,7 +59,7 @@ class AdminView
       <div class="col-lg-12">
         <div class="row justify-content-center">
         <!-- button for create new product -->
-          <a href="new" class='btn btn-secondary btn-lg mb-5'>Create new product</a>
+          <a href="new" class='btn btn-secondary btn-lg mb-5 text-decoration-none'>Create new product</a>
           <table class=table>
             <tr>
                 <th>Title</th>
@@ -101,7 +101,7 @@ class AdminView
         <td>$product[price]</td>
         <td>
           <!-- Update product-->
-          <a href="edit?id=$product[product_id]" class='btn btn-sm btn-outline-success'>
+          <a href="edit?id=$product[product_id]" class='btn btn-sm btn-outline-success text-decoration-none'>
           Edit
         </td>
         <td>
@@ -128,23 +128,23 @@ class AdminView
     <form action="update" method="post" class="row">
       <input type="hidden" name="id" value="$product[product_id]" />
       <div class="col-lg-12">
-        <label for="title">Title</label>
+        <label for="title" class="mb-0 mt-4">Title</label>
         <input id="title" type="text" name="title" class="form-control mt-2 text-center" value="$product[title]" required>
       </div>
       <div class=" col-lg-12">
-        <label for="description">Description</label>
+        <label for="description" class="mb-0 mt-4">Description</label>
         <textarea class="form-control mt-2 text-center" id="description" name="description" required >$product[description]</textarea>
       </div>
       <div class="col-lg-12">
-        <label for="image">Image</label>
+        <label for="image" class="mb-0 mt-4">Image</label>
         <input id="image" type="text" name="image" class="form-control mt-2 text-center" value="$product[image]" required>
       </div>
       <div class="col-lg-12">
-        <label for="price">Price</label>
+        <label for="price" class="mb-0 mt-4">Price</label>
         <input id="price" type="number" name="price" class="form-control mt-2 text-center" value="$product[price]" required>
       </div>
       <div class='col-lg-12 mx-auto'>
-        <input type='submit' class='form-control mt-2 btn btn-outline-primary' value='Update'>
+        <input type='submit' class='form-control mt-2 btn btn-outline-primary mt-5' value='Update'>
       </div>
     </form>
     HTML;

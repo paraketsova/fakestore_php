@@ -35,9 +35,7 @@ class View
                         <div class="card-body">
                             <h4 class="card-title">$product[title]</h4>
                             <h5>$product[price] kr</h5>
-                            <!-- <p class="card-text">$product[description]</p> -->
                         </div>
-                        <div class="card-footer"><small class="text-muted">★ ★ ★ ★ ☆</small></div>
                     </div>
                 </a>
             </div>

@@ -14,21 +14,21 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="<?= URLROOT ?>">WebShop</a>
-            <div class="navbar-brand"><?= isset($_SESSION['email']) ? $_SESSION['email'] : "" ?></div>
+            <a class="navbar-brand text-decoration-none" href="<?= URLROOT ?>">WebShop</a>
+            <div class="navbar-brand text-decoration-none"><?= isset($_SESSION['email']) ? $_SESSION['email'] : "" ?></div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="<?= URLROOT ?>">
+                        <a class="nav-link text-decoration-none" href="<?= URLROOT ?>">
                             Home
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="<?= URLROOT ?>/about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="<?= URLROOT ?>/login">Log in</a></li>
-                    <li class="nav-item"><a class="nav-link" href="<?= URLROOT ?>/logout">Log out</a></li>
-                    <li class="nav-item"><a class="nav-link" href="<?= URLROOT ?>/signup">Sign up</a></li>
+                    <li class="nav-item"><a class="nav-link text-decoration-none" href="<?= URLROOT ?>/about">About</a></li>
+                    <li class="nav-item"><a class="nav-link text-decoration-none" href="<?= URLROOT ?>/login">Log in</a></li>
+                    <li class="nav-item"><a class="nav-link text-decoration-none" href="<?= URLROOT ?>/logout">Log out</a></li>
+                    <li class="nav-item"><a class="nav-link text-decoration-none" href="<?= URLROOT ?>/signup">Sign up</a></li>
                 </ul>
             </div>
         </div>
@@ -37,12 +37,12 @@
     <div class="container my-4">
         <!--  <div class="row my-4">
              <div class="col-lg-3">
-               <h1 class="my-4">Shop Name</h1> 
+               <h1 class="my-4">Shop Name</h1>
                 <div class="list-group">
                     <a class="list-group-item" href="#!">Category 1</a>
                     <a class="list-group-item" href="#!">Category 2</a>
                     <a class="list-group-item" href="#!">Category 3</a>
-                </div> 
+                </div>
         </div>-->
         <div class="col-lg-12">
             <div class="row">

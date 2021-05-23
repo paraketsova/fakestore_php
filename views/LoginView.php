@@ -9,7 +9,7 @@ class LoginView
 
     public function viewFooter()
     {
-        include_once("views/include/footer.php");
+        include_once("views/include/footer-sm.php");
     }
 
     public function viewLoginPage()

@@ -3,7 +3,7 @@
 </div>
 </div>
 <!-- Footer-->
-<footer class="py-4 bg-dark sticky-bottom">
+<footer class="py-4 bg-dark fixed-bottom">
     <div class="container">
         <p class="m-0 text-center text-white">Copyright &copy; WebShop 2021</p>
     </div>

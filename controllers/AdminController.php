@@ -87,7 +87,7 @@ class AdminController
     $this->view->viewHeader("");
     $orders = $this->model->fetchAllOrders();
     $this->view->viewAdminOrders($orders);
-    $this->view->viewFooter();
+    //$this->view->viewFooter();
   }
 
   public function edit_order()
