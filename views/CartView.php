@@ -76,4 +76,9 @@ class CartView
     echo $html;
 
   }
+
+  public function viewCheckoutPage()
+  {
+    echo '<h1>Your order is received, hurray!</h1>';
+  }
 }

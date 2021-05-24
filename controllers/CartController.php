@@ -67,7 +67,10 @@ class CartController
       $this->model->addOrder($customer_id, $products, $totalSum);
 
       // TODO: clear cart in the session
-      echo 'Your order is received, hurray!';
+
+      $this->view->viewHeader("");
+      $this->view->viewCheckoutPage();
+      $this->view->viewFooter();
     }
   }
 
