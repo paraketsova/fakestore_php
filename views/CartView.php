@@ -13,7 +13,7 @@ class CartView
 
 
 
-  public function viewCartPage($products)
+  public function viewCartPage($products, $isLoggedIn)
   {
     $action_cart = URLROOT . "/cart/checkout";
     $totalSum = 0;
@@ -47,14 +47,33 @@ class CartView
             <div class="card-footer d-flex align-items-end flex-column">
               <span class="text p-2">ATT BETALA $totalSum kr </span>
             </div>
+    HTML;
+    echo $html;
+
+    if ($isLoggedIn) {
+
+      $html = <<<HTML
+              <div class="text-center mt-3">
+              <button type="submit" name="Submit" class="btn btn-secondary mb-5 ">Bekräfta order</button>
+              <div>
+            </form>
+          </div>
+        </div>
+      HTML;
+      echo $html;
+
+    } else {
+        $html = <<<HTML
             <div class="text-center mt-3">
-             <button type="submit" name="Submit" class="btn btn-secondary mb-5 ">Bekräfta order</button>
+            <p>Du är inte inloggad.</p><br>
+            <p>Logga in eller sign up.</p>
             <div>
           </form>
         </div>
-      </div>
-  HTML;
-    echo $html;
+        </div>
+        HTML;
+        echo $html;
+    }
   }
 
   public function renderItemCart($product, $sum)

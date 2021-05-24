@@ -21,7 +21,8 @@ class CartController
       // render $_SESSION['cart'])
       $this->view->viewHeader("");
       $products = $_SESSION['cart'];
-      $this->view->viewCartPage($products);
+      $isLoggedIn = !!@$_SESSION['email'];
+      $this->view->viewCartPage($products, $isLoggedIn);
       $this->view->viewFooter();
     }
   }
