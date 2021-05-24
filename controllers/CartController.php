@@ -49,10 +49,30 @@ class CartController
   // POST /cart/checkout
   public function checkout() {
     if (!isset($_SESSION['cart'])) {
-        // error
-        header("Location: " . URLROOT);
+      // error
+      header("Location: " . URLROOT);
     } else {
-        // store in database
+      // store cart in database
+
+      $customer_id = $this->model->fetchOneCustomerByEmail();
+
+      $products = $_SESSION['cart'];
+      $totalSum = 0;
+      foreach ($products as $product)
+      {
+        $sum = $product['quantity'] * $product['price'];
+        $totalSum += $sum;
+      }
+
+      $this->model->addOrder($customer_id, $products, $totalSum);
+
+      // clear cart in the session
+      unset($_SESSION['cart']);
+      unset($_SESSION['n_products_in_cart']);
+
+      $this->view->viewHeader("");
+      $this->view->viewCheckoutPage();
+      $this->view->viewFooter();
     }
   }
 
