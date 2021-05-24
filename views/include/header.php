@@ -29,21 +29,12 @@
                     <li class="nav-item"><a class="nav-link text-decoration-none" href="<?= URLROOT ?>/login">Log in</a></li>
                     <li class="nav-item"><a class="nav-link text-decoration-none" href="<?= URLROOT ?>/logout">Log out</a></li>
                     <li class="nav-item"><a class="nav-link text-decoration-none" href="<?= URLROOT ?>/signup">Sign up</a></li>
-                    <li class="nav-item"><a class="nav-link text-decoration-none mt-1" href="<?= URLROOT ?>/cart"><i class="fas fa-shopping-cart"></i> <?= isset($_SESSION['n_products_in_cart']) ? $_SESSION['n_products_in_cart'] : 0; ?></a></li>
+                    <li class="nav-item"><a class="nav-link text-decoration-none mb-2" href="<?= URLROOT ?>/cart"><i class="fas fa-shopping-cart"></i> <?= isset($_SESSION['n_products_in_cart']) ? $_SESSION['n_products_in_cart'] : 0; ?></a></li>
                 </ul>
             </div>
         </div>
     </nav>
     <!-- Page Content-->
     <div class="container my-4">
-        <!--  <div class="row my-4">
-             <div class="col-lg-3">
-               <h1 class="my-4">Shop Name</h1>
-                <div class="list-group">
-                    <a class="list-group-item" href="#!">Category 1</a>
-                    <a class="list-group-item" href="#!">Category 2</a>
-                    <a class="list-group-item" href="#!">Category 3</a>
-                </div>
-        </div>-->
         <div class="col-lg-12">
             <div class="row">

@@ -2,7 +2,7 @@
 
 class View
 {
-    public function viewHeader($title)
+    public function viewHeader()
     {
         include_once("views/include/header.php");
     }

@@ -1,7 +1,7 @@
 <?php
 class CartView
 {
-  public function viewHeader($title)
+  public function viewHeader()
   {
     include_once("views/include/header.php");
   }
@@ -79,6 +79,6 @@ class CartView
 
   public function viewCheckoutPage()
   {
-    echo '<h1>Your order is received, hurray!</h1>';
+    echo '<h4 class="text-center mt-5">Din order är mottagen!</h4>';
   }
 }
