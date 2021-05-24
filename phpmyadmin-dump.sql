@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: May 23, 2021 at 10:11 AM
+-- Generation Time: May 24, 2021 at 02:27 PM
 -- Server version: 5.7.32
 -- PHP Version: 7.4.12
 
@@ -70,8 +70,8 @@ CREATE TABLE `orders` (
   `order_id` int(11) NOT NULL,
   `customer_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
-  `quantity` int(11) NOT NULL,
   `order_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `order_sum` int(100) NOT NULL,
   `order_status` varchar(11) COLLATE utf8_swedish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 
@@ -79,12 +79,12 @@ CREATE TABLE `orders` (
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`order_id`, `customer_id`, `product_id`, `quantity`, `order_date`, `order_status`) VALUES
-(1, 1, 1, 1, '2021-05-23 12:07:12', 'Mottagen'),
-(2, 2, 2, 2, '2021-05-23 12:08:44', 'Mottagen'),
-(3, 3, 3, 3, '2021-05-23 12:09:35', 'Skickad'),
-(4, 4, 4, 4, '2021-05-23 12:10:47', 'Skickad'),
-(5, 5, 5, 5, '2021-05-23 12:10:47', 'Mottagen');
+INSERT INTO `orders` (`order_id`, `customer_id`, `product_id`, `order_date`, `order_sum`, `order_status`) VALUES
+(1, 1, 1, '2021-05-23 12:07:12', 0, 'Mottagen'),
+(2, 2, 2, '2021-05-23 12:08:44', 0, 'Mottagen'),
+(3, 3, 3, '2021-05-23 12:09:35', 0, 'Skickad'),
+(4, 4, 4, '2021-05-23 12:10:47', 0, 'Skickad'),
+(5, 5, 5, '2021-05-23 12:10:47', 0, 'Mottagen');
 
 -- --------------------------------------------------------
 

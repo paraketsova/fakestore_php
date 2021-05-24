@@ -53,6 +53,9 @@ class CartController
         header("Location: " . URLROOT);
     } else {
         // store in database
+      $customer_id = $this->model->fetchOneCustomerByEmail();
+      $totalSum = $this->view->viewCartPage();
+      $this->model->addOrder($customer_id, $totalSum);
     }
   }
 
