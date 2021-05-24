@@ -34,9 +34,15 @@ class CartController
     $product['product_id'] = $this->sanitize($_POST['product_id']);
     $product['image'] = $this->sanitize($_POST['image']);
     $product['title'] = $this->sanitize($_POST['title']);
-    $product['quantity'] = $this->sanitize($_POST['quantity']);
+    $quantity = $this->sanitize($_POST['quantity']);
+    $product['quantity'] = $quantity;
     $product['price'] = $this->sanitize($_POST['price']);
     array_push($_SESSION['cart'], $product);
+    if (!isset($_SESSION['n_products_in_cart'])) {
+        $_SESSION['n_products_in_cart'] = $quantity;
+    } else {
+        $_SESSION['n_products_in_cart'] += $quantity;
+    }
     header("Location: " . URLROOT);
   }
 

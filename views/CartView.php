@@ -59,7 +59,7 @@ class CartView
   public function renderItemCart($product)
   {
     $sum = $product['quantity'] * $product['price'];
-    array_push($totalSumArray, $sum);
+    // array_push($totalSumArray, $sum);
 
     $html = <<<HTML
 
