@@ -16,19 +16,18 @@ class CartView
   public function viewCartPage($products)
   {
     $html = <<<HTML
-     <div class="cart content-wrapper">
-      <h1>Shopping Cart</h1>
-      <form action="cart" method="post">
-        <table>
-          <thead>
+    <h4>DIN VARUKORG</h4>
+    <div class="col-lg-12">
+      <div class="row justify-content-center">
+        <form action="cart" method="post">
+          <table class="table">
             <tr>
-            <td></td>
-            <td>Product</td>
-            <td>Quantity</td>
-            <td>Price</td>
-            <td>Total</td>
+              <th></th>
+              <th>Product</th>
+              <th>Quantity</th>
+              <th>Price</th>
+              <th>Total</th>
             </tr>
-            </thead>
             <tbody>
 
   HTML;
@@ -38,11 +37,21 @@ class CartView
       $this->renderItemCart($product);
       //echo "<pre>"; print_r($products); // test
     }
+
     $html = <<<HTML
-            </tbody>
-          </table> 
-        </form>
-      </div>    
+              </tbody>
+            </table>
+            <div>
+              <span class="text">ATT BETALA</span>
+              <span class=""> kr</span>
+            </div>
+            <div class="buttons">
+                <input type="submit" value="Update" name="update">
+                <input type="submit" value="Place Order" name="placeorder">
+            </div>
+          </form>
+        </div>
+      </div>
   HTML;
     echo $html;
   }
@@ -50,6 +59,7 @@ class CartView
   public function renderItemCart($product)
   {
     $sum = $product['quantity'] * $product['price'];
+    array_push($totalSumArray, $sum);
 
     $html = <<<HTML
 
@@ -61,10 +71,11 @@ class CartView
         <td>$product[quantity]</td>
         <td>$product[price] kr</td>
         <td>$sum kr</td>
-        
+
       </tr>
 
    HTML;
     echo $html;
+
   }
 }
