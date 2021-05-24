@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: May 24, 2021 at 02:27 PM
+-- Generation Time: May 24, 2021 at 06:47 PM
 -- Server version: 5.7.32
 -- PHP Version: 7.4.12
 
@@ -69,22 +69,20 @@ INSERT INTO `customers` (`customer_id`, `name`, `email`, `password`) VALUES
 CREATE TABLE `orders` (
   `order_id` int(11) NOT NULL,
   `customer_id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL,
+  `products` json DEFAULT NULL,
   `order_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `order_sum` int(100) NOT NULL,
-  `order_status` varchar(11) COLLATE utf8_swedish_ci NOT NULL
+  `order_status` varchar(11) COLLATE utf8_swedish_ci NOT NULL DEFAULT 'mottagen'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 
 --
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`order_id`, `customer_id`, `product_id`, `order_date`, `order_sum`, `order_status`) VALUES
-(1, 1, 1, '2021-05-23 12:07:12', 0, 'Mottagen'),
-(2, 2, 2, '2021-05-23 12:08:44', 0, 'Mottagen'),
-(3, 3, 3, '2021-05-23 12:09:35', 0, 'Skickad'),
-(4, 4, 4, '2021-05-23 12:10:47', 0, 'Skickad'),
-(5, 5, 5, '2021-05-23 12:10:47', 0, 'Mottagen');
+INSERT INTO `orders` (`order_id`, `customer_id`, `products`, `order_date`, `order_sum`, `order_status`) VALUES
+(6, 2, NULL, '2021-05-24 20:41:37', 0, 'mottagen'),
+(8, 2, NULL, '2021-05-24 20:47:01', 0, 'mottagen'),
+(9, 2, NULL, '2021-05-24 20:47:36', 0, 'mottagen');
 
 -- --------------------------------------------------------
 
@@ -161,9 +159,7 @@ ALTER TABLE `customers`
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
-  ADD PRIMARY KEY (`order_id`) USING BTREE,
-  ADD UNIQUE KEY `customer_id` (`customer_id`),
-  ADD UNIQUE KEY `product_id` (`product_id`);
+  ADD PRIMARY KEY (`order_id`) USING BTREE;
 
 --
 -- Indexes for table `products`
@@ -191,21 +187,10 @@ ALTER TABLE `customers`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
   MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `orders`
---
-ALTER TABLE `orders`
-  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`customer_id`),
-  ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`);

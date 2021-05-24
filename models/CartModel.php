@@ -16,19 +16,18 @@ class CartModel
   $parameters = array (
     ':email' => $email_customers
   );
-  $customer_id = $this->db->select($statement, $parameters);
+  $customers = $this->db->select($statement, $parameters);
+  $customer_id = $customers[0][0];
   return $customer_id;
  }
 
- public function addOrder($totalSum, $customer_id)
- {
-    if (isset($_POST)) {
-      $statement =  "INSERT INTO orders (customer_id, order_sum) VALUES (:customer_id, :order_sum)";
-      $parameters = array(
-          ':customer_id' => $customer_id,
-          ':order_sum' => $totalSum
-      );
-      $this->db->insert($statement, $parameters);
-    }
- }
+  public function addOrder($customer_id, $totalSum)
+  {
+    $statement = "INSERT INTO orders (customer_id, order_sum) VALUES (:customer_id, :order_sum)";
+    $parameters = array(
+      ':customer_id' => $customer_id,
+      ':order_sum' => $totalSum
+    );
+    $this->db->insert($statement, $parameters);
+  }
 }

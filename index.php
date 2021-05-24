@@ -1,6 +1,7 @@
 <?php
+ini_set('display_errors', 1); // TODO: remove this debugging
 session_start();
-print_r($_SESSION);
+print_r($_SESSION); // TODO: remove this debugging
 define('URLROOT', 'http://localhost:8888/fakestore_php');
 // Models
 require_once("models/Database.php");
