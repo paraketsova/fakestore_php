@@ -9,6 +9,8 @@ require_once("models/LoginModel.php");
 require_once("models/SignUpModel.php");
 require_once("models/AdminModel.php");
 require_once("models/ProductModel.php");
+require_once("models/CartModel.php");
+
 // Viwes
 require_once("views/View.php");
 require_once("views/AboutView.php");
@@ -16,6 +18,8 @@ require_once("views/LoginView.php");
 require_once("views/SignUpView.php");
 require_once("views/AdminView.php");
 require_once("views/ProductView.php");
+require_once("views/CartView.php");
+
 // Controllers
 require_once("controllers/IndexController.php");
 require_once("controllers/AboutController.php");
@@ -87,9 +91,9 @@ switch ($controllerName) {
         $controller->$actionName();
         break;
     case "cart":
-        // $model = new ProductModel($database);
-        // $view = new ProductView();
-        $controller = new CartController();
+        $model = new CartModel($database);
+        $view = new CartView();
+        $controller = new CartController($model, $view);
         $controller->$actionName();
         break;
 }

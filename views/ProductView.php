@@ -32,6 +32,7 @@ class ProductView
                 <form action="$action" method="post">
                     <input type="hidden" name="product_id" value="$product[product_id]">
                     <input type="hidden" name="title" value="$product[title]">
+                    <input type="hidden" name="image" value="$product[image]">
                     <input type="hidden" name="price" value="$product[price]">
                     <input type="number" name="quantity" value="1" min="1" max="10" placeholder="Quantity" required>
                     <!-- <a id="cart_link" href="#" class="btn btn-secondary mt-1 mb-2 ml-4"><i class="fas fa-shopping-cart"></i> Lägg i varukorgen</a> -->

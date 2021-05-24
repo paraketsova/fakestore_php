@@ -1,16 +1,28 @@
 <?php
 class CartController
 {
-  public function __construct()
+  private $model;
+  private $view;
+
+  public function __construct($model, $view)
   {
+    $this->model = $model;
+    $this->view = $view;
   }
 
   // GET /cart
   public function index() {
     if (!isset($_SESSION['cart'])) {
-        // empty, render empty
+      // empty, render empty
+        $this->view->viewHeader("");
+        echo "Empty Session";
+        $this->view->viewFooter();
     } else {
-        // render $_SESSION['cart'])
+      // render $_SESSION['cart'])
+      $this->view->viewHeader("");
+      $products = $_SESSION['cart'];
+      $this->view->viewCartPage($products);
+      $this->view->viewFooter();
     }
   }
 
@@ -20,6 +32,7 @@ class CartController
     }
     $product = array();
     $product['product_id'] = $this->sanitize($_POST['product_id']);
+    $product['image'] = $this->sanitize($_POST['image']);
     $product['title'] = $this->sanitize($_POST['title']);
     $product['quantity'] = $this->sanitize($_POST['quantity']);
     $product['price'] = $this->sanitize($_POST['price']);
