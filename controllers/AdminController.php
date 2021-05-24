@@ -14,7 +14,7 @@ class AdminController
   {
     $this->view->viewHeader("");
     $this->view->viewAdminIndex();
-    $this->view->viewFooter();
+    // $this->view->viewFooter();
   }
 
   public function unauthorized()
@@ -29,7 +29,7 @@ class AdminController
     $this->view->viewHeader("");
     $products = $this->model->fetchAllProducts();
     $this->view->viewAdminProducts($products);
-    $this->view->viewFooter();
+    // $this->view->viewFooter();
   }
 
   public function delete()
@@ -45,7 +45,7 @@ class AdminController
     $product = $this->model->fetchOneProductById($id);
     $this->view->viewHeader("");
     $this->view->editProduct($product);
-    $this->view->viewFooter();
+    // $this->view->viewFooter();
   }
 
   public function update()
@@ -65,7 +65,7 @@ class AdminController
   {
     $this->view->viewHeader("");
     $this->view->newProduct();
-    $this->view->viewFooter();
+    // $this->view->viewFooter();
   }
   // Create new product in db
   public function create()
