@@ -66,7 +66,9 @@ class CartController
 
       $this->model->addOrder($customer_id, $products, $totalSum);
 
-      // TODO: clear cart in the session
+      // clear cart in the session
+      unset($_SESSION['cart']);
+      unset($_SESSION['n_products_in_cart']);
 
       $this->view->viewHeader("");
       $this->view->viewCheckoutPage();
