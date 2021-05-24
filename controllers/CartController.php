@@ -52,10 +52,20 @@ class CartController
       // error
       header("Location: " . URLROOT);
     } else {
-      // store in database
+      // store cart in database
+
       $customer_id = $this->model->fetchOneCustomerByEmail();
-      $totalSum = 0; // TODO: calculate real data
+
+      $products = $_SESSION['cart'];
+      $totalSum = 0;
+      foreach ($products as $product)
+      {
+        $sum = $product['quantity'] * $product['price'];
+        $totalSum += $sum;
+      }
+
       $this->model->addOrder($customer_id, $totalSum);
+
       // TODO: clear cart in the session
       echo 'Your order is received, hurray!';
     }
