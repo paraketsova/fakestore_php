@@ -21,11 +21,12 @@ class CartModel
   return $customer_id;
  }
 
-  public function addOrder($customer_id, $totalSum)
+  public function addOrder($customer_id, $products, $totalSum)
   {
-    $statement = "INSERT INTO orders (customer_id, order_sum) VALUES (:customer_id, :order_sum)";
+    $statement = "INSERT INTO orders (customer_id, products, order_sum) VALUES (:customer_id, :products, :order_sum)";
     $parameters = array(
       ':customer_id' => $customer_id,
+      ':products' => json_encode($products),
       ':order_sum' => $totalSum
     );
     $this->db->insert($statement, $parameters);

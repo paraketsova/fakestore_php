@@ -64,7 +64,7 @@ class CartController
         $totalSum += $sum;
       }
 
-      $this->model->addOrder($customer_id, $totalSum);
+      $this->model->addOrder($customer_id, $products, $totalSum);
 
       // TODO: clear cart in the session
       echo 'Your order is received, hurray!';
