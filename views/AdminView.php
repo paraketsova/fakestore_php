@@ -2,15 +2,10 @@
 
 class AdminView
 {
-  public function viewHeader($title)
+  public function viewHeader()
   {
       include_once("views/include/header.php");
   }
-/*
-  public function viewFooter()
-  {
-      include_once("views/include/footer-sm.php");
-  } */
 
   public function viewAdminIndex()
   {
@@ -76,7 +71,6 @@ class AdminView
 
       foreach ($products as $product) {
         $this->renderProductLine($product);
-      //echo "<pre>"; print_r($products); // test
       }
 
       $html = <<<HTML
@@ -144,7 +138,7 @@ class AdminView
         <input id="price" type="number" name="price" class="form-control mt-2 text-center" value="$product[price]" required>
       </div>
       <div class='col-lg-12 mx-auto'>
-        <input type='submit' class='form-control mt-2 btn btn-outline-primary mt-5' value='Update'>
+        <input type='submit' class='form-control mt-2 btn btn-outline-primary mt-4' value='Update'>
       </div>
     </form>
     HTML;
@@ -163,22 +157,22 @@ class AdminView
     <form action="create" method="post" class="row">
       <input type="hidden" name="id" />
         <div class="col-lg-12">
-            <label for="title">Title</label>
+            <label for="title" class="mb-0 mt-4">Title</label>
             <input id="title" type="text" name="title" class="form-control mt-2 text-center" required>
         </div>
         <div class=" col-lg-12">
-            <label for="description">Description</label>
+            <label for="description" class="mb-0 mt-4">Description</label>
             <textarea class="form-control mt-2 text-center" id="description" name="description" required ></textarea>
         </div>
         <div class="col-lg-12">
-            <label for="image">Image</label>
+            <label for="image" class="mb-0 mt-4">Image</label>
             <input id="image" type="text" name="image" class="form-control mt-2 text-center" required>
         </div>
         <div class="col-lg-12">
-            <label for="price">Price</label>
+            <label for="price" class="mb-0 mt-4">Price</label>
             <input id="price" type="number" name="price" class="form-control mt-2 text-center" required>
         </div>
-        <div class='col-lg-12 mx-auto'>
+        <div class='col-lg-12 mx-auto mt-4'>
             <input type='submit' class='form-control mt-2 btn btn-outline-primary' value='Create'>
         </div>
     </form>
@@ -195,12 +189,11 @@ public function viewOrdersTable($orders)
     $html = <<<HTML
       <div class="col-lg-12">
         <div class="row justify-content-center">
-          <table class=table>
+          <h4>Orders</h4>
+          <table class="table mt-3">
             <tr>
                 <th>Order number</th>
                 <th>Customer</th>
-                <th>Product</th>
-                <th>Quantity</th>
                 <th>Order date</th>
                 <th>Status</th>
                 <th></th>
@@ -232,8 +225,6 @@ public function viewOrdersTable($orders)
       <tr>
         <td>$order[order_id]</td>
         <td>$order[customer_id]</td>
-        <td>$order[product_id]</td>
-        <td>$order[quantity]</td>
         <td>$order[order_date]</td>
         <td>$order[order_status]</td>
 
@@ -258,30 +249,22 @@ public function viewOrdersTable($orders)
     <form action="update_order" method="post" class="row">
       <input type="hidden" name="id" value="$order[order_id]" />
       <div class="col-lg-12">
-        <label for="id">Order number</label>
+        <label for="id" class="mb-0 mt-4">Order number</label>
         <input id="id" type="text" name="id" class="form-control mt-2 text-center" value="$order[order_id]" readonly>
       </div>
       <div class=" col-lg-12">
-        <label for="customer">Customer</label>
+        <label for="customer" class="mb-0 mt-4">Customer</label>
         <input id="customer" type="text" name="customer"  class="form-control mt-2 text-center" value="$order[customer_id]" readonly>
       </div>
       <div class="col-lg-12">
-        <label for="product">Product</label>
-        <input id="product" type="text" name="product" class="form-control mt-2 text-center" value="$order[product_id]"  readonly>
-      </div>
-      <div class="col-lg-12">
-        <label for="quantity">Quantity</label>
-        <input id="quantity" type="number" name="quantity" class="form-control mt-2 text-center" value="$order[quantity]"  readonly>
-      </div>
-      <div class="col-lg-12">
-        <label for="order_date">Order date</label>
+        <label for="order_date" class="mb-0 mt-4">Order date</label>
         <input id="order_date" type="text" name="order_date" class="form-control mt-2 text-center" value="$order[order_date]"  readonly>
       </div>
       <div class="col-lg-12">
-        <label for="order_status">Order status</label>
+        <label for="order_status" class="mb-0 mt-4">Order status</label>
         <input id="order_status" type="text" name="order_status" class="form-control mt-2 text-center" value="$order[order_status]" required>
       </div>
-      <div class='col-lg-12 mx-auto'>
+      <div class='col-lg-12 mx-auto mt-4'>
         <input type='submit' class='form-control mt-2 btn btn-outline-primary' value='Update'>
       </div>
 
