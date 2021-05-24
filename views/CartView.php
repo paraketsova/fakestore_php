@@ -16,9 +16,9 @@ class CartView
   public function viewCartPage($products)
   {
     $html = <<<HTML
-    <h4>DIN VARUKORG</h4>
-    <div class="col-lg-12">
-      <div class="row justify-content-center">
+   <div class="col-lg-12 "> 
+   <h4 class="text-center mt-5 mb-5">DIN VARUKORG</h4>
+      <div >
         <form action="cart" method="post">
           <table class="table">
             <tr>
@@ -28,7 +28,7 @@ class CartView
               <th>Price</th>
               <th>Total</th>
             </tr>
-            <tbody>
+            
 
   HTML;
   echo $html;
@@ -39,16 +39,14 @@ class CartView
     }
 
     $html = <<<HTML
-              </tbody>
+              
             </table>
+            <div class="card-footer d-flex align-items-end flex-column">
+              <span class="text p-2">ATT BETALA 0 kr </span>
+            </div>
+            <div class="text-center mt-3">
+             <button type="submit" name="Submit" class="btn btn-secondary mb-5 ">Bekräfta order</button>
             <div>
-              <span class="text">ATT BETALA</span>
-              <span class=""> kr</span>
-            </div>
-            <div class="buttons">
-                <input type="submit" value="Update" name="update">
-                <input type="submit" value="Place Order" name="placeorder">
-            </div>
           </form>
         </div>
       </div>
