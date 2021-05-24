@@ -15,7 +15,6 @@ class CartController
     if (!isset($_SESSION['cart'])) {
       // empty, render empty
         $this->view->viewHeader("");
-        echo "Empty Session";
         $this->view->viewFooter();
     } else {
       // render $_SESSION['cart'])

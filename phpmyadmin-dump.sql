@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: May 24, 2021 at 06:47 PM
+-- Generation Time: May 24, 2021 at 09:12 PM
 -- Server version: 5.7.32
 -- PHP Version: 7.4.12
 
@@ -57,8 +57,7 @@ INSERT INTO `customers` (`customer_id`, `name`, `email`, `password`) VALUES
 (3, 'Anna Petersson', 'anna@petersson.se', '97a9d330e236c8d067f01da1894a5438'),
 (4, 'Helena Strand', 'helena@strand.se', '8f5696351d40139b803a68a8cef76cea'),
 (5, 'Kate Svensson', 'kate@svensson.se', 'a6cb3dfcedc2356766917ede95a12a23'),
-(6, 'Bjorn Bjornsson', 'bjorn@bjornsson.se', '4547f455d8e15fc105802a5967e09001'),
-(25, 'X', 'x@y.z', 'e10adc3949ba59abbe56e057f20f883e');
+(6, 'Bjorn Bjornsson', 'bjorn@bjornsson.se', '4547f455d8e15fc105802a5967e09001');
 
 -- --------------------------------------------------------
 
@@ -80,9 +79,15 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`order_id`, `customer_id`, `products`, `order_date`, `order_sum`, `order_status`) VALUES
-(6, 2, NULL, '2021-05-24 20:41:37', 0, 'mottagen'),
-(8, 2, NULL, '2021-05-24 20:47:01', 0, 'mottagen'),
-(9, 2, NULL, '2021-05-24 20:47:36', 0, 'mottagen');
+(16, 2, '[{\"image\": \"vas.jpg\", \"price\": \"5200\", \"title\": \"VAS, DESIGN WILHELM KÅGE\", \"quantity\": \"1\", \"product_id\": \"1\"}, {\"image\": \"chest.jpeg\", \"price\": \"8000\", \"title\": \"SKÄNK, KOREA\", \"quantity\": \"2\", \"product_id\": \"2\"}, {\"image\": \"vas-fauna.jpeg\", \"price\": \"5500\", \"title\": \"VAS\", \"quantity\": \"1\", \"product_id\": \"4\"}]', '2021-05-24 21:08:38', 26700, 'mottagen'),
+(17, 2, '[{\"image\": \"chest.jpeg\", \"price\": \"8000\", \"title\": \"SKÄNK, KOREA\", \"quantity\": \"1\", \"product_id\": \"2\"}]', '2021-05-24 21:10:11', 8000, 'mottagen'),
+(18, 2, '[{\"image\": \"vas.jpg\", \"price\": \"5200\", \"title\": \"VAS, DESIGN WILHELM KÅGE\", \"quantity\": \"1\", \"product_id\": \"1\"}, {\"image\": \"ottoman.jpeg\", \"price\": \"15000\", \"title\": \"FÅTÖLJ\", \"quantity\": \"1\", \"product_id\": \"3\"}]', '2021-05-24 21:12:29', 20200, 'mottagen'),
+(19, 2, '[{\"image\": \"vas.jpg\", \"price\": \"5200\", \"title\": \"VAS, DESIGN WILHELM KÅGE\", \"quantity\": \"1\", \"product_id\": \"1\"}, {\"image\": \"tehuva.jpeg\", \"price\": \"600\", \"title\": \"TEHUVA\", \"quantity\": \"1\", \"product_id\": \"9\"}, {\"image\": \"chest.jpeg\", \"price\": \"8000\", \"title\": \"SKÄNK, KOREA\", \"quantity\": \"2\", \"product_id\": \"2\"}]', '2021-05-24 21:15:48', 21800, 'mottagen'),
+(20, 2, '[{\"image\": \"vas-fauna.jpeg\", \"price\": \"5500\", \"title\": \"VAS\", \"quantity\": \"1\", \"product_id\": \"4\"}, {\"image\": \"matta-frank.jpeg\", \"price\": \"43000\", \"title\": \"MATTA\", \"quantity\": \"1\", \"product_id\": \"5\"}, {\"image\": \"nattlampa.jpeg\", \"price\": \"16000\", \"title\": \"NATTLAMPA\", \"quantity\": \"3\", \"product_id\": \"8\"}]', '2021-05-24 21:16:55', 96500, 'mottagen'),
+(21, 2, '[{\"image\": \"chest.jpeg\", \"price\": \"8000\", \"title\": \"SKÄNK, KOREA\", \"quantity\": \"1\", \"product_id\": \"2\"}]', '2021-05-24 21:27:10', 8000, 'skickad'),
+(22, 1, '[{\"image\": \"klocka.jpeg\", \"price\": \"6100\", \"title\": \"QLOCKTWO TOUCH BORDSKLOCKA M. ALARM\", \"quantity\": \"1\", \"product_id\": \"28\"}, {\"image\": \"paraplystall.jpeg\", \"price\": \"13400\", \"title\": \"PARAPLYSTÄLL FORNASETTI\", \"quantity\": \"1\", \"product_id\": \"6\"}]', '2021-05-24 22:09:20', 19500, 'mottagen'),
+(23, 1, '[{\"image\": \"little_petra.jpg\", \"price\": \"47495\", \"title\": \"LITTLE PETRA VB1 WALNUT SHEEPSKIN SAHARA\", \"quantity\": \"1\", \"product_id\": \"14\"}]', '2021-05-24 22:11:34', 47495, 'mottagen'),
+(24, 1, '[{\"image\": \"matta-frank.jpeg\", \"price\": \"43000\", \"title\": \"MATTA\", \"quantity\": \"1\", \"product_id\": \"5\"}]', '2021-05-24 22:18:07', 43000, 'mottagen');
 
 -- --------------------------------------------------------
 
@@ -131,8 +136,6 @@ INSERT INTO `products` (`product_id`, `title`, `description`, `image`, `price`) 
 (26, 'MY SECRET PLACE BORDSLAMPA', 'Varumärke: SELETTI\r\nMy Secret Place är en bordslampa från Seletti, formgiven av Marcantonio. Uttrycket är lekfullt och drömskt med en stege som leder upp till en hemlig plats – den lysande månen. Bordslampan är tillverkad av resin och blir ett dekorativt inslag i ditt hem samtidigt som den skildrar en historia. Marcantonio är välkänd för sina livfulla kreationer där fantasi, humor och ironi kombineras på ett konstnärligt sätt.', 'luna_bordslampa.jpeg', 2089),
 (27, 'JURASSIC LAMP REX BORDSLAMPA', 'Varumärke: SELETTI\r\nJurassic Lamp Rex är en innovativ bordslampa formgiven av Marcantonio för italienska Seletti. På tyrannosaurusens rygg sitter sju LED-lampor som ger ett mjukt och behagligt sken. Tyrannosaurusen, även kallad T-Rex, levde för 70-65 miljoner år sedan och anses ha varit en av de största köttätande dinosaurerna. Lampan Jurassic Lamp Rex har en 2,5 meter lång sladd och är tillverkad i resin.', 'dinosaur_lamp.jpeg', 2180),
 (28, 'QLOCKTWO TOUCH BORDSKLOCKA M. ALARM', 'Varumärke: QLOCKTWO\r\nQlocktwo Touch är en bordsklocka formgiven av Biegert & Funk. Med hjälp av 110 bokstäver som lyses upp av lika många LED-lampor visar Qlocktwo vad klockan är på ett okonventionellt och spännande sätt. Tillsammans bildar de upplysta bokstäverna ”Klockan är …” och var femte minut slår klockan om. För att indikera minuterna mellan femminutersintervallerna finns fyra ljuspunkter i vardera av klockans hörn. Fronten hålls på plats med hjälp av magneter och går lätt att byta ut om man önskar ändra utseende eller färg. Qlocktwo Touch har en smidig alarmfunktion med snooze samt flera andra touchfunktioner som underlättar din vardag. Qlocktwo finns att få med front på upp till 20 olika språk, men som standard levereras Qlocktwo med front på svenska.', 'klocka.jpeg', 6100),
-(47, 'Test', 'gnflkgjfkjhfhjnflsdjfdjgh', 'no-image.png', 10800),
-(48, 'Test1', 'fkgjdljhkjhdshggjljg', 'ak_1330.jpg', 1),
 (49, 'Test2', 'hgkfgjlkhjgfjkhdgjhjkterklghhfhhhhhjhjgljfhgdhgjhhggdhghgrhgdhfgh', 'no-image.png', 28283),
 (50, 'Test3', 'ngngthjthjtj', 'no-image.png', 2342),
 (51, 'New test', 'lalala', 'no-image.png', 2222222);
@@ -181,13 +184,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `products`
