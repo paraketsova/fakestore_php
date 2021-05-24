@@ -1,5 +1,5 @@
 <?php
-ini_set('display_errors', 1); // TODO: remove this debugging
+//ini_set('display_errors', 1); // TEST debugging
 session_start();
 define('URLROOT', 'http://localhost:8888/fakestore_php');
 // Models

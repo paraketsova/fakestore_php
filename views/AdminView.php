@@ -205,7 +205,6 @@ public function viewOrdersTable($orders)
 
       foreach ($orders as $order) {
         $this->renderOrderLine($order);
-        //echo "<pre>"; print_r($orders); // test
       }
 
       $html = <<<HTML

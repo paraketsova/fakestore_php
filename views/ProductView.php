@@ -22,7 +22,7 @@ class ProductView
     $action = URLROOT . "/cart/add";
     $html = <<<HTML
 
-    <div class="col-lg-7"> <!-- TODO - если не починим футер, то поставить в класс vh-100 -->
+    <div class="col-lg-7">
         <div class="card mt-4">
             <img class="card-img-top img-fluid" src="images/$product[image]" alt="$product[title]" />
             <div class="card-body ">
@@ -35,7 +35,6 @@ class ProductView
                     <input type="hidden" name="image" value="$product[image]">
                     <input type="hidden" name="price" value="$product[price]">
                     <input type="number" name="quantity" value="1" min="1" max="10" placeholder="Quantity" required>
-                    <!-- <a id="cart_link" href="#" class="btn btn-secondary mt-1 mb-2 ml-4"><i class="fas fa-shopping-cart"></i> Lägg i varukorgen</a> -->
                     <button type="submit" name="Submit" class="btn btn-secondary mt-1 mb-2 ml-4"><i class="fas fa-shopping-cart"></i> Lägg i varukorgen</button>
                 </form>
             </div>
