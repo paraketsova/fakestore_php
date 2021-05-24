@@ -33,12 +33,12 @@ class LoginController
 
     if ($checking) {
       // $_SESSION["login"] = $email;
-      $this->view->viewConfirmLoginMessage($email);
       if ($email == 'admin@admin.se') {
         header("Location: " . URLROOT . "/admin");
       } else {
         header("Location: " . URLROOT);
       }
+      $this->view->viewConfirmLoginMessage($email);
     } else {
       $this->view->viewErrorMessage();
     }
