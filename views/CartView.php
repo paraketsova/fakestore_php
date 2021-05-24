@@ -15,6 +15,7 @@ class CartView
 
   public function viewCartPage($products)
   {
+    $totalSum = 0;
     $html = <<<HTML
    <div class="col-lg-12 "> 
    <h4 class="text-center mt-5 mb-5">DIN VARUKORG</h4>
@@ -33,16 +34,18 @@ class CartView
   HTML;
   echo $html;
 
-    foreach ($products as $product) {
-      $this->renderItemCart($product);
-      //echo "<pre>"; print_r($products); // test
+    foreach ($products as $product) 
+    {
+      $sum = $product['quantity'] * $product['price'];
+      $totalSum += $sum;
+      $this->renderItemCart($product, $sum);
     }
 
     $html = <<<HTML
               
             </table>
             <div class="card-footer d-flex align-items-end flex-column">
-              <span class="text p-2">ATT BETALA 0 kr </span>
+              <span class="text p-2">ATT BETALA $totalSum kr </span>
             </div>
             <div class="text-center mt-3">
              <button type="submit" name="Submit" class="btn btn-secondary mb-5 ">Bekräfta order</button>
@@ -54,11 +57,8 @@ class CartView
     echo $html;
   }
 
-  public function renderItemCart($product)
+  public function renderItemCart($product, $sum)
   {
-    $sum = $product['quantity'] * $product['price'];
-    // array_push($totalSumArray, $sum);
-
     $html = <<<HTML
 
       <tr>
