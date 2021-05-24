@@ -1,5 +1,6 @@
 <?php
 session_start();
+print_r($_SESSION);
 define('URLROOT', 'http://localhost:8888/fakestore_php');
 // Models
 require_once("models/Database.php");
@@ -23,6 +24,7 @@ require_once("controllers/LogoutController.php");
 require_once("controllers/SignUpController.php");
 require_once("controllers/AdminController.php");
 require_once("controllers/ProductController.php");
+require_once("controllers/CartController.php");
 
 $database = new Database("webshopdb", "root", "root");
 // Simple Router
@@ -82,6 +84,12 @@ switch ($controllerName) {
         $model = new ProductModel($database);
         $view = new ProductView();
         $controller = new ProductController($model, $view);
+        $controller->$actionName();
+        break;
+    case "cart":
+        // $model = new ProductModel($database);
+        // $view = new ProductView();
+        $controller = new CartController();
         $controller->$actionName();
         break;
 }
