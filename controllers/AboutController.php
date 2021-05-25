@@ -12,7 +12,7 @@ class AboutController
 
   public function index()
   {
-    $this->view->viewHeader("Om Oss");
+    $this->view->viewHeader("");
     $this->view->viewAboutPage();
     $this->view->viewFooter();
   }
