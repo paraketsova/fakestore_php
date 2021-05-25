@@ -28,15 +28,23 @@ class SignUpController
     $name = $this->sanitize($_POST['name']);
     $email = $this->sanitize($_POST['email']);
     $pass = $this->sanitize($_POST['password']);
+    $pass2 = $this->sanitize($_POST['password2']);
+
+    if ($pass !== $pass2) {
+      $this->view->viewErrorPasswordMessage();
+      return;
+    }
+
     $password = md5($pass);
 
     $checking = $this->model->signupUser($name, $email, $password);
 
-    if ($checking) {
-      $this->view->viewConfirmSignUpMessage($email);
-    } else {
+    if (!$checking) {
       $this->view->viewErrorMessage($email);
+      return;
     }
+
+    $this->view->viewConfirmSignUpMessage($email);
   }
 
   /**

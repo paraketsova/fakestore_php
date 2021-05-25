@@ -35,6 +35,15 @@ class SignUpView
         );
     }
 
+    public function viewErrorPasswordMessage()
+    {
+        $this->printMessage(
+            "<h4> Lösenordet måste bli bekräftad </h4>
+            ",
+            "warning"
+        );
+    }
+
     public function printMessage($message, $messageType = "danger")
     {
         $html = <<< HTML
