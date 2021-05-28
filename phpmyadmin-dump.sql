@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: May 24, 2021 at 09:12 PM
+-- Generation Time: May 28, 2021 at 10:14 AM
 -- Server version: 5.7.32
 -- PHP Version: 7.4.12
 
@@ -155,14 +155,15 @@ ALTER TABLE `admin`
 --
 ALTER TABLE `customers`
   ADD PRIMARY KEY (`customer_id`),
-  ADD UNIQUE KEY `customer_id` (`customer_id`),
-  ADD UNIQUE KEY `email` (`email`);
+  ADD UNIQUE KEY `email` (`email`),
+  ADD KEY `customer_id` (`customer_id`) USING BTREE;
 
 --
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
-  ADD PRIMARY KEY (`order_id`) USING BTREE;
+  ADD PRIMARY KEY (`order_id`) USING BTREE,
+  ADD KEY `customer_id` (`customer_id`);
 
 --
 -- Indexes for table `products`
@@ -197,3 +198,14 @@ ALTER TABLE `orders`
 --
 ALTER TABLE `products`
   MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `orders`
+--
+ALTER TABLE `orders`
+  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`customer_id`);
+
